@@ -2,47 +2,45 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section id="hero" className="border-b border-[#ECD5D9]">
-      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[82vh]">
-        
-        {/* Left Column: Brand Ruby Side with User's Hero Photo */}
-        <div className="lg:col-span-5 bg-[#8A0427] p-8 sm:p-12 lg:p-16 flex flex-col justify-between text-white relative">
-          <div>
-            <span className="text-[11px] uppercase tracking-[0.25em] text-white/80 font-bold block mb-4">
-              Smash Up · Authentic Griddle
-            </span>
-            <div className="relative aspect-[3/4] w-full max-w-[360px] sm:max-w-[380px] mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 bg-black/10">
-              <Image
-                src="/hero-image.jpg"
-                alt="Smash Up Official Burger"
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 400px"
-              />
+    <section id="hero" className="relative overflow-hidden border-b border-[#ECD5D9] bg-[#FAF5F6]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* Left Column: Floating Burger (No frame, no border, pure floating burger) */}
+          <div className="lg:col-span-6 flex justify-center order-2 lg:order-1">
+            <div className="relative w-full max-w-[440px] sm:max-w-[480px]">
+              
+              {/* Floating Burger with realistic soft shadow */}
+              <div className="relative aspect-[3/4] w-full drop-shadow-[0_25px_35px_rgba(34,5,13,0.22)] hover:scale-[1.02] transition-transform duration-300">
+                <Image
+                  src="/hero-image.jpg"
+                  alt="Smash Up Authentic Burger"
+                  fill
+                  priority
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 100vw, 500px"
+                />
+              </div>
+
+              {/* Discreet Floating Price Hook */}
+              <div className="text-center mt-2">
+                <span className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-[#ECD5D9] text-xs font-extrabold text-[#22050D] shadow-xs">
+                  <span>The OG Double Smash</span>
+                  <span className="text-[#8A0427]">€9.50</span>
+                </span>
+              </div>
+
             </div>
           </div>
 
-          <div className="mt-8 pt-6 border-t border-white/15 flex items-center justify-between text-xs">
-            <div>
-              <p className="font-bold text-white uppercase tracking-wider">The OG Double Smash</p>
-              <p className="text-white/70 text-[11px]">Black Angus, doppio cheddar &amp; potato bun</p>
-            </div>
-            <span className="text-base font-black bg-white text-[#8A0427] px-3 py-1 rounded-lg">
-              €9.50
-            </span>
-          </div>
-        </div>
-
-        {/* Right Column: Editorial Food Copy */}
-        <div className="lg:col-span-7 bg-[#FAF5F6] p-8 sm:p-12 lg:p-20 flex flex-col justify-center text-left">
-          <div className="max-w-xl space-y-6">
+          {/* Right Column: Editorial Food Copy & Direct Booking */}
+          <div className="lg:col-span-6 space-y-6 text-left order-1 lg:order-2">
             
-            <div className="inline-block bg-[#8A0427]/10 text-[#8A0427] text-xs font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-md">
-              Cottura Rapida a 250°C
+            <div className="inline-block bg-[#8A0427]/10 text-[#8A0427] text-xs font-extrabold uppercase tracking-widest px-3.5 py-1.5 rounded-md">
+              American Smash Griddle · 250°C
             </div>
 
-            <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl lg:text-6xl font-black text-[#22050D] leading-[1.08] tracking-tight">
+            <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl lg:text-6xl font-black text-[#22050D] leading-[1.06] tracking-tight">
               Il vero Smash Burger.
               <br />
               <span className="text-[#8A0427]">Crosticina croccante.</span>
@@ -50,8 +48,8 @@ export default function Hero() {
               Cuore succoso.
             </h1>
 
-            <p className="text-[#6B4E55] text-base sm:text-lg leading-relaxed">
-              Carne Black Angus fresca macinata ogni giorno e schiacciata al momento su piastra rovente in cromo. La reazione di Maillard crea quel bordo dorato e sottile racchiuso in un soffice potato bun tostato al burro.
+            <p className="text-[#6B4E55] text-base sm:text-lg leading-relaxed font-normal">
+              100% Black Angus fresco schiacciato al momento sulla piastra rovente in cromo. La reazione di Maillard crea quel bordo sottile e dorato, racchiuso in un soffice potato bun tostato al burro.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
@@ -63,7 +61,7 @@ export default function Hero() {
               </a>
               <a
                 href="#menu"
-                className="border border-[#22050D]/20 hover:border-[#8A0427] hover:text-[#8A0427] text-[#22050D] text-xs sm:text-sm font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-center transition-colors bg-white"
+                className="border border-[#22050D]/20 hover:border-[#8A0427] hover:text-[#8A0427] text-[#22050D] text-xs sm:text-sm font-bold uppercase tracking-wider px-8 py-4 rounded-xl text-center transition-colors bg-white shadow-xs"
               >
                 Consulta il Menu
               </a>
@@ -78,13 +76,13 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="text-[#8A0427] font-bold hover:underline"
               >
-                Seguici su Instagram @smash_up_official →
+                Instagram: @smash_up_official →
               </a>
             </div>
 
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
   );

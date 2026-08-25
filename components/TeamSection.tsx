@@ -8,10 +8,10 @@ export default function TeamSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           <div className="lg:col-span-6">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border-4 border-[#F7EFE3]">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border-4 border-[#F7EFE3] bg-white">
               <Image
                 src="/team-photo.jpg"
-                alt="La crew di Smash Up"
+                alt="Smash Up Instagram Burger &amp; Experience"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

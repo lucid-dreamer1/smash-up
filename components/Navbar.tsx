@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { href: "#hero", label: "Home" },
@@ -18,10 +19,17 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 pt-4 sm:pt-6 px-4 sm:px-8">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         
-        {/* Brand Logo (Left on warm tone) */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-10 h-10 rounded-2xl bg-[#ECA050] flex items-center justify-center text-xl shadow-sm group-hover:scale-105 transition-transform border border-black/5">
-            🍔
+        {/* Brand Logo with User logo.jpg */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative w-11 h-11 rounded-2xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform border border-black/10 bg-white">
+            <Image
+              src="/logo.jpg"
+              alt="Smash Up Logo"
+              fill
+              className="object-cover"
+              sizes="44px"
+              priority
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-[family-name:var(--font-display)] text-xl sm:text-2xl font-black tracking-tight text-[#2B2118] leading-none">
@@ -33,7 +41,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Floating Pill Nav Container (Right Side) */}
+        {/* Floating Pill Nav Container */}
         <div className="hidden md:flex items-center gap-6 pill-nav border border-black/8 px-4 py-2 rounded-full shadow-lg shadow-black/5">
           <nav className="flex items-center gap-7 px-2">
             {navLinks.map((link) => (
@@ -54,13 +62,13 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="text-xs font-bold text-[#786A5E] hover:text-[#2B2118] transition-colors"
             >
-              @smash_up
+              @smash_up_official
             </a>
             <a
               href="#prenota"
               className="bg-[#E75A4E] hover:bg-[#D4473B] text-white text-xs font-black uppercase tracking-wider px-5 py-2.5 rounded-full transition-all shadow-md shadow-red-500/20 hover:scale-105"
             >
-              Prenota 🔥
+              Prenota
             </a>
           </div>
         </div>
@@ -108,7 +116,7 @@ export default function Navbar() {
             onClick={() => setMobileOpen(false)}
             className="mt-2 bg-[#E75A4E] text-white text-center text-xs font-black uppercase tracking-wider py-3.5 rounded-full shadow-md"
           >
-            Prenota un Tavolo 🔥
+            Prenota un Tavolo
           </a>
         </div>
       )}

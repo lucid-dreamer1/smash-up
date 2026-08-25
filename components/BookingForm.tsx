@@ -46,7 +46,7 @@ export default function BookingForm() {
             Riserva il Tuo Posto
           </h2>
           <p className="text-[#786A5E] text-sm mt-2 font-medium">
-            Prenota il tavolo o richiedi il takeaway. Conferma rapida via email.
+            Prenota il tavolo o richiedi il takeaway. Riceverai conferma rapida via email.
           </p>
         </div>
 
@@ -55,13 +55,13 @@ export default function BookingForm() {
           
           {state.success && (
             <div className="mb-6 bg-green-50 border border-green-300 rounded-2xl p-4 text-center">
-              <p className="text-green-700 font-bold text-sm">✓ Richiesta Ricevuta!</p>
+              <p className="text-green-700 font-bold text-sm">Richiesta Ricevuta con Successo</p>
               <p className="text-green-600 text-xs mt-1">{state.message}</p>
             </div>
           )}
           {state.error && (
             <div className="mb-6 bg-red-50 border border-red-300 rounded-2xl p-4 text-center">
-              <p className="text-red-700 font-bold text-sm">✗ {state.error}</p>
+              <p className="text-red-700 font-bold text-sm">Errore: {state.error}</p>
             </div>
           )}
 
@@ -175,7 +175,7 @@ export default function BookingForm() {
                 id="booking-notes"
                 name="notes"
                 rows={2}
-                placeholder="Es: asporto ore 20:30, intolleranza..."
+                placeholder="Es: asporto ore 20:30, intolleranze..."
                 className="w-full bg-[#F7EFE3]/50 border border-black/10 rounded-xl px-4 py-2.5 text-[#2B2118] placeholder:text-[#786A5E]/60 focus:outline-none focus:border-[#ECA050] text-sm resize-none"
               />
             </div>
@@ -202,7 +202,7 @@ export default function BookingForm() {
               disabled={isPending}
               className="w-full bg-[#ECA050] hover:bg-[#D98836] text-white text-xs sm:text-sm font-black uppercase tracking-wider py-4 rounded-xl transition-all shadow-md shadow-orange-500/20 cursor-pointer"
             >
-              {isPending ? "Invio in corso..." : "Invia Richiesta Prenotazione 🔥"}
+              {isPending ? "Invio in corso..." : "Invia Richiesta Prenotazione"}
             </button>
           </form>
 

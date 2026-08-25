@@ -25,7 +25,7 @@ export default function StickyMobileCTA() {
           href="#prenota"
           className="block bg-[#ECA050] hover:bg-[#D98836] text-white text-center font-black py-3.5 rounded-2xl shadow-md text-xs uppercase tracking-wider"
         >
-          Prenota un Tavolo 🔥
+          Prenota un Tavolo
         </a>
       </div>
     </div>

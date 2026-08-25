@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { MenuItem, MenuCategory } from "@/lib/types";
 
-const categories: { key: MenuCategory; label: string; icon: string }[] = [
-  { key: "primi", label: "Smash Burgers", icon: "🍔" },
-  { key: "antipasti", label: "Crispy Chicken", icon: "🍗" },
-  { key: "secondi", label: "Loaded Fries", icon: "🍟" },
-  { key: "dolci", label: "Sweet Buns", icon: "🥤" },
+const categories: { key: MenuCategory; label: string }[] = [
+  { key: "primi", label: "Smash Burgers" },
+  { key: "antipasti", label: "Crispy Chicken" },
+  { key: "secondi", label: "Loaded Fries" },
+  { key: "dolci", label: "Sweet Buns & Drinks" },
 ];
 
 interface MenuSectionProps {
@@ -46,14 +46,13 @@ export default function MenuSection({ items }: MenuSectionProps) {
               <button
                 key={cat.key}
                 onClick={() => setActiveCategory(cat.key)}
-                className={`flex items-center justify-center gap-2 py-3 px-4 rounded-2xl font-extrabold text-xs uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
+                className={`flex items-center justify-center py-3 px-4 rounded-2xl font-extrabold text-xs uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
                   isActive
                     ? "bg-[#ECA050] text-white border-[#ECA050] shadow-md shadow-orange-500/20 scale-[1.02]"
                     : "bg-white text-[#2B2118] border-black/5 hover:bg-white/80"
                 }`}
               >
-                <span>{cat.icon}</span>
-                <span>{cat.label}</span>
+                {cat.label}
               </button>
             );
           })}
@@ -81,7 +80,9 @@ export default function MenuSection({ items }: MenuSectionProps) {
               </div>
 
               <div className="mt-4 pt-3 border-t border-black/5 flex items-center justify-between text-xs text-[#786A5E]">
-                <span>{item.featured ? "⭐ Top Seller" : "🔥 Smashed Fresh"}</span>
+                <span className="font-semibold text-[11px] uppercase tracking-wider">
+                  {item.featured ? "Top Seller" : "Smashed Fresh"}
+                </span>
                 <a href="#prenota" className="text-[#ECA050] font-extrabold hover:underline">
                   Ordina / Prenota →
                 </a>

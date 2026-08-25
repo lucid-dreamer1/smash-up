@@ -7,7 +7,7 @@ export const mockMenuItems: MenuItem[] = [
     name: "The OG Double Smash",
     description: "Doppio patty Black Angus smashed sottile e croccante, doppio American cheddar fuso, cetriolini pickles, cipolla tritata e salsa segreta Smash Up in potato bun tostato.",
     price: 9.50,
-    category: "primi", // Used for smash burgers
+    category: "primi",
     available: true,
     featured: true,
   },
@@ -31,7 +31,7 @@ export const mockMenuItems: MenuItem[] = [
   },
   {
     id: "s4",
-    name: "Spicy Diablo Smash 🌶️",
+    name: "Spicy Diablo Smash",
     description: "Doppio Black Angus, formaggio Pepper Jack piccante, jalapeños croccanti, bacon glassato all'hot honey e maionese alla 'nduja calabrese.",
     price: 11.50,
     category: "primi",
@@ -89,7 +89,7 @@ export const mockMenuItems: MenuItem[] = [
   // Loaded Fries
   {
     id: "sec1",
-    name: "Smash Loaded Fries 🍟",
+    name: "Smash Loaded Fries",
     description: "Patatine fritte con la buccia dorate e croccanti, colata di formaggio cheddar caldo fuso, crumble di bacon croccante e salsa smash.",
     price: 6.50,
     category: "secondi",
@@ -107,7 +107,7 @@ export const mockMenuItems: MenuItem[] = [
   },
   {
     id: "sec3",
-    name: "Diablo Spicy Fries 🌶️",
+    name: "Diablo Spicy Fries",
     description: "Patatine croccanti con polvere di peperoncino affumicato, jalapeños a rondelle, cheddar fuso e maionese piccante.",
     price: 6.50,
     category: "secondi",

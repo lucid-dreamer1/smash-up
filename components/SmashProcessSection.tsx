@@ -4,19 +4,16 @@ export default function SmashProcessSection() {
       num: "01",
       title: "The Blend 100% Angus",
       desc: "Solo tagli nobili selezionati freschi ogni mattina con il bilanciamento ideale di grasso nobile per un morso succoso ed esplosivo.",
-      icon: "🥩",
     },
     {
       num: "02",
       title: "The Searing 250°C Press",
       desc: "La polpetta viene schiacciata con la pressa in ghisa sulla piastra rovente, liberando la reazione di Maillard e una crosticina irresistibile.",
-      icon: "🔥",
     },
     {
       num: "03",
       title: "The Potato Bun & Sauce",
       desc: "Panino soffice come una nuvola tostato al burro, doppio cheddar fuso e la nostra iconica salsa segreta della casa.",
-      icon: "🍔",
     },
   ];
 
@@ -44,7 +41,9 @@ export default function SmashProcessSection() {
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <span className="text-3xl">{step.icon}</span>
+                  <span className="w-8 h-8 rounded-full bg-[#ECA050]/15 flex items-center justify-center text-xs font-black text-[#ECA050]">
+                    0{idx + 1}
+                  </span>
                   <span className="font-[family-name:var(--font-display)] text-2xl font-black text-[#ECA050]/40">
                     {step.num}
                   </span>

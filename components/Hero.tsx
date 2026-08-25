@@ -13,7 +13,7 @@ export default function Hero() {
               {/* Floating Burger with realistic soft shadow */}
               <div className="relative aspect-[3/4] w-full drop-shadow-[0_25px_35px_rgba(34,5,13,0.22)] hover:scale-[1.02] transition-transform duration-300">
                 <Image
-                  src="/hero-image.jpg"
+                  src="/hero-burger-floating.png"
                   alt="Smash Up Authentic Burger"
                   fill
                   priority
@@ -23,12 +23,7 @@ export default function Hero() {
               </div>
 
               {/* Discreet Floating Price Hook */}
-              <div className="text-center mt-2">
-                <span className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-[#ECD5D9] text-xs font-extrabold text-[#22050D] shadow-xs">
-                  <span>The OG Double Smash</span>
-                  <span className="text-[#8A0427]">€9.50</span>
-                </span>
-              </div>
+              
 
             </div>
           </div>
@@ -36,9 +31,7 @@ export default function Hero() {
           {/* Right Column: Editorial Food Copy & Direct Booking */}
           <div className="lg:col-span-6 space-y-6 text-left order-1 lg:order-2">
             
-            <div className="inline-block bg-[#8A0427]/10 text-[#8A0427] text-xs font-extrabold uppercase tracking-widest px-3.5 py-1.5 rounded-md">
-              American Smash Griddle · 250°C
-            </div>
+           
 
             <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl lg:text-6xl font-black text-[#22050D] leading-[1.06] tracking-tight">
               Il vero Smash Burger.
@@ -68,8 +61,7 @@ export default function Hero() {
             </div>
 
             <div className="pt-4 border-t border-[#ECD5D9] flex flex-wrap items-center gap-6 text-xs text-[#6B4E55]">
-              <span>Disponibile al tavolo &amp; Takeaway</span>
-              <span>·</span>
+              
               <a
                 href="https://www.instagram.com/smash_up_official/"
                 target="_blank"

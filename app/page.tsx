@@ -46,7 +46,7 @@ export default async function HomePage() {
   const menuItems = await getMenuItems();
 
   return (
-    <main className="min-h-screen bg-[#0A0A0B]">
+    <main className="min-h-screen bg-[#FBFBFA]">
       <Navbar />
       <Hero />
       <SmashProcessSection />

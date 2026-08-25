@@ -8,12 +8,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://smashupburger.it"),
   title: "Smash Up | Real American Smash Burger",
   description:
-    "Smash burger autentico americano. 100% Black Angus smashed a 250°C, crosticina croccante Maillard, cheddar fuso e potato bun. Prenota il tuo tavolo o takeaway!",
+    "Smash burger autentico americano. 100% Black Angus smashed sulla piastra a 250°C, crosticina croccante Maillard, cheddar fuso e potato bun. Prenota il tuo tavolo o takeaway!",
   keywords: [
     "smash up",
     "smash burger",
     "smash burger caserta",
-    "smash burger napoli",
     "american burger",
     "best burger",
     "black angus smash",
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Smash Up | Real American Smash Burger",
     description:
-      "Real Smash. Real Crust. No Bullsh*t. L'autentico smash burger americano con crosticina croccante e potato bun.",
+      "Real Smash. Real Crust. L'autentico smash burger americano con crosticina croccante e potato bun.",
     type: "website",
     locale: "it_IT",
   },
@@ -34,8 +33,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it" className="h-full antialiased dark" data-scroll-behavior="smooth">
-      <body className="min-h-full flex flex-col bg-[#0A0A0B] text-white font-sans">
+    <html lang="it" className="h-full antialiased" data-scroll-behavior="smooth">
+      <body className="min-h-full flex flex-col bg-[#FBFBFA] text-[#18181B] font-sans">
         <LocalSchema />
         <GoogleAnalytics />
         {children}

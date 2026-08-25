@@ -7,7 +7,7 @@ export default function StickyMobileCTA() {
 
   useEffect(() => {
     function handleScroll() {
-      setVisible(window.scrollY > window.innerHeight * 0.8);
+      setVisible(window.scrollY > window.innerHeight * 0.7);
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -20,12 +20,12 @@ export default function StickyMobileCTA() {
         visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
       }`}
     >
-      <div className="bg-[#260a0a]/95 backdrop-blur-md border-t border-[#5F1A19]/40 px-4 py-3">
+      <div className="bg-white/95 backdrop-blur-md border-t border-zinc-200 px-4 py-3 shadow-2xl">
         <a
           href="#prenota"
-          className="block bg-[#5F1A19] hover:bg-[#4d1514] text-[#FDD37B] text-center font-bold py-3.5 rounded-full transition-all duration-300 shadow-lg text-sm border border-[#FDD37B]/30 uppercase tracking-wider"
+          className="block bg-[#FF9F1C] hover:bg-[#ff8f00] text-white text-center font-black py-3.5 rounded-xl transition-all shadow-md text-sm uppercase tracking-wider"
         >
-          Prenota un Tavolo
+          Prenota un Tavolo 🔥
         </a>
       </div>
     </div>

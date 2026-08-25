@@ -27,16 +27,16 @@ export default function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Left / Center Area: Real Burger Image across split */}
+          {/* Left / Center Area: Real Instagram Burger Photo across split */}
           <div className="md:col-span-6 flex flex-col items-center md:items-start relative order-2 md:order-1">
             
             <div className="relative w-full max-w-[420px] sm:max-w-[460px] mx-auto md:mx-0">
               
-              {/* Real Instagram Burger Image */}
+              {/* Real Instagram Burger Image from @smash_up_official */}
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
                 <Image
-                  src="/burger-hero.jpg"
-                  alt="Smash Up Authentic Smash Burger"
+                  src="/insta-hero-burger.jpg"
+                  alt="Smash Up Official Instagram Burger"
                   fill
                   priority
                   className="object-cover"

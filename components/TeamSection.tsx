@@ -7,14 +7,41 @@ export default function TeamSection() {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <div className="lg:col-span-6">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border-4 border-[#FDF6F7] bg-white">
+          <div className="lg:col-span-6 grid grid-cols-2 gap-4">
+            <div className="relative aspect-square rounded-3xl overflow-hidden shadow-lg border-2 border-[#FDF6F7] bg-white">
               <Image
-                src="/team-photo.jpg"
-                alt="Smash Up Experience"
+                src="/insta-burger-2.jpg"
+                alt="Smash Up Signature Burger da Instagram"
                 fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
+            </div>
+            <div className="relative aspect-square rounded-3xl overflow-hidden shadow-lg border-2 border-[#FDF6F7] bg-white mt-6">
+              <Image
+                src="/insta-burger-box.jpg"
+                alt="Smash Up Box Combo da Instagram"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
+            </div>
+            <div className="relative aspect-square rounded-3xl overflow-hidden shadow-lg border-2 border-[#FDF6F7] bg-white -mt-6">
+              <Image
+                src="/insta-burger-3.jpg"
+                alt="Smash Up Double Patty da Instagram"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 1024px) 50vw, 25vw"
+              />
+            </div>
+            <div className="relative aspect-square rounded-3xl overflow-hidden shadow-lg border-2 border-[#FDF6F7] bg-white">
+              <Image
+                src="/insta-burger-4.jpg"
+                alt="Smash Up Loaded Burger da Instagram"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 1024px) 50vw, 25vw"
               />
             </div>
           </div>
@@ -37,6 +64,9 @@ export default function TeamSection() {
               </p>
               <p>
                 Piastra in cromo rovente a 250°C, carne Black Angus ad alto contenuto di sapore e la tipica pressatura rapida che intrappola tutti i succhi e crea quella crosticina irresistibile.
+              </p>
+              <p>
+                Seguici su Instagram <a href="https://www.instagram.com/smash_up_official/" target="_blank" rel="noopener noreferrer" className="text-[#8A0427] font-bold underline">@smash_up_official</a> per scoprire tutte le ultime novità e i burger speciali del mese.
               </p>
             </div>
 

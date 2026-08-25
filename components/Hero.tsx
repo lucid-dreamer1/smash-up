@@ -5,16 +5,16 @@ export default function Hero() {
     <section id="hero" className="border-b border-[#ECD5D9]">
       <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[82vh]">
         
-        {/* Left Column: Brand Ruby Side with Real Burger Photo */}
+        {/* Left Column: Brand Ruby Side with User's Hero Photo */}
         <div className="lg:col-span-5 bg-[#8A0427] p-8 sm:p-12 lg:p-16 flex flex-col justify-between text-white relative">
           <div>
             <span className="text-[11px] uppercase tracking-[0.25em] text-white/80 font-bold block mb-4">
               Smash Up · Authentic Griddle
             </span>
-            <div className="relative aspect-square w-full max-w-[380px] mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
+            <div className="relative aspect-[3/4] w-full max-w-[360px] sm:max-w-[380px] mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 bg-black/10">
               <Image
-                src="/insta-hero-burger.jpg"
-                alt="Smash burger con doppio formaggio e bacon"
+                src="/hero-image.jpg"
+                alt="Smash Up Official Burger"
                 fill
                 priority
                 className="object-cover"

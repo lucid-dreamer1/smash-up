@@ -34,41 +34,41 @@ export default function BookingForm() {
   const today = new Date().toISOString().split("T")[0];
 
   return (
-    <section id="prenota" className="py-24 bg-[#FAF5F6] border-b border-[#ECD5D9]">
+    <section id="prenota" className="py-24 bg-[#FDF6F7]">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center mb-10">
-          <span className="text-xs uppercase tracking-[0.25em] text-[#8A0427] font-bold block mb-2">
-            Tavoli &amp; Asporto
+          <span className="text-xs uppercase tracking-[0.25em] text-[#8A0427] font-black block mb-2">
+            Prenotazioni &amp; Asporto
           </span>
-          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-black text-[#22050D]">
-            Prenota un Tavolo
+          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-black text-[#2B0A12]">
+            Riserva il Tuo Posto
           </h2>
-          <p className="text-sm text-[#6B4E55] mt-2">
-            Compila il modulo per riservare il tuo posto in sala o richiedere l&apos;asporto. Riceverai conferma rapida via email.
+          <p className="text-[#735058] text-sm mt-2 font-medium">
+            Prenota il tavolo o richiedi il takeaway. Riceverai conferma rapida via email.
           </p>
         </div>
 
-        {/* Card Form */}
-        <div className="bg-white border border-[#ECD5D9] rounded-2xl p-6 sm:p-10 shadow-xs">
+        {/* Card */}
+        <div className="bg-white border border-[#F0D5DA] rounded-3xl p-6 sm:p-10 shadow-xl">
           
           {state.success && (
-            <div className="mb-6 bg-green-50 border border-green-300 rounded-lg p-4 text-center">
-              <p className="text-green-800 font-bold text-sm">Richiesta Ricevuta con Successo</p>
-              <p className="text-green-700 text-xs mt-1">{state.message}</p>
+            <div className="mb-6 bg-green-50 border border-green-300 rounded-2xl p-4 text-center">
+              <p className="text-green-700 font-bold text-sm">Richiesta Ricevuta con Successo</p>
+              <p className="text-green-600 text-xs mt-1">{state.message}</p>
             </div>
           )}
           {state.error && (
-            <div className="mb-6 bg-red-50 border border-red-300 rounded-lg p-4 text-center">
-              <p className="text-red-800 font-bold text-sm">Errore: {state.error}</p>
+            <div className="mb-6 bg-red-50 border border-red-300 rounded-2xl p-4 text-center">
+              <p className="text-red-700 font-bold text-sm">Errore: {state.error}</p>
             </div>
           )}
 
           <form ref={formRef} action={formAction} className="space-y-4">
             
             <div>
-              <label htmlFor="booking-name" className="block text-[#22050D] text-xs uppercase tracking-wider mb-1.5 font-bold">
+              <label htmlFor="booking-name" className="block text-[#2B0A12] text-xs uppercase tracking-wider mb-1.5 font-bold">
                 Nome e Cognome *
               </label>
               <input
@@ -77,13 +77,13 @@ export default function BookingForm() {
                 type="text"
                 required
                 placeholder="Mario Rossi"
-                className="w-full bg-[#FAF5F6] border border-[#ECD5D9] rounded-lg px-4 py-3 text-[#22050D] placeholder:text-[#6B4E55]/60 focus:outline-none focus:border-[#8A0427] text-sm"
+                className="w-full bg-[#FDF6F7]/60 border border-[#F0D5DA] rounded-xl px-4 py-3 text-[#2B0A12] placeholder:text-[#735058]/60 focus:outline-none focus:border-[#8A0427] text-sm"
               />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="booking-email" className="block text-[#22050D] text-xs uppercase tracking-wider mb-1.5 font-bold">
+                <label htmlFor="booking-email" className="block text-[#2B0A12] text-xs uppercase tracking-wider mb-1.5 font-bold">
                   Email *
                 </label>
                 <input
@@ -92,11 +92,11 @@ export default function BookingForm() {
                   type="email"
                   required
                   placeholder="mario.rossi@email.it"
-                  className="w-full bg-[#FAF5F6] border border-[#ECD5D9] rounded-lg px-4 py-3 text-[#22050D] placeholder:text-[#6B4E55]/60 focus:outline-none focus:border-[#8A0427] text-sm"
+                  className="w-full bg-[#FDF6F7]/60 border border-[#F0D5DA] rounded-xl px-4 py-3 text-[#2B0A12] placeholder:text-[#735058]/60 focus:outline-none focus:border-[#8A0427] text-sm"
                 />
               </div>
               <div>
-                <label htmlFor="booking-phone" className="block text-[#22050D] text-xs uppercase tracking-wider mb-1.5 font-bold">
+                <label htmlFor="booking-phone" className="block text-[#2B0A12] text-xs uppercase tracking-wider mb-1.5 font-bold">
                   Telefono Cellulare *
                 </label>
                 <input
@@ -105,21 +105,21 @@ export default function BookingForm() {
                   type="tel"
                   required
                   placeholder="+39 333 123 4567"
-                  className="w-full bg-[#FAF5F6] border border-[#ECD5D9] rounded-lg px-4 py-3 text-[#22050D] placeholder:text-[#6B4E55]/60 focus:outline-none focus:border-[#8A0427] text-sm"
+                  className="w-full bg-[#FDF6F7]/60 border border-[#F0D5DA] rounded-xl px-4 py-3 text-[#2B0A12] placeholder:text-[#735058]/60 focus:outline-none focus:border-[#8A0427] text-sm"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="booking-guests" className="block text-[#22050D] text-xs uppercase tracking-wider mb-1.5 font-bold">
+                <label htmlFor="booking-guests" className="block text-[#2B0A12] text-xs uppercase tracking-wider mb-1.5 font-bold">
                   Numero Persone *
                 </label>
                 <select
                   id="booking-guests"
                   name="guests"
                   required
-                  className="w-full bg-[#FAF5F6] border border-[#ECD5D9] rounded-lg px-4 py-3 text-[#22050D] focus:outline-none focus:border-[#8A0427] text-sm cursor-pointer"
+                  className="w-full bg-[#FDF6F7]/60 border border-[#F0D5DA] rounded-xl px-4 py-3 text-[#2B0A12] focus:outline-none focus:border-[#8A0427] text-sm cursor-pointer"
                 >
                   {Array.from({ length: 12 }, (_, i) => i + 1).map((n) => (
                     <option key={n} value={n}>
@@ -129,7 +129,7 @@ export default function BookingForm() {
                 </select>
               </div>
               <div>
-                <label htmlFor="booking-date" className="block text-[#22050D] text-xs uppercase tracking-wider mb-1.5 font-bold">
+                <label htmlFor="booking-date" className="block text-[#2B0A12] text-xs uppercase tracking-wider mb-1.5 font-bold">
                   Data *
                 </label>
                 <input
@@ -138,20 +138,20 @@ export default function BookingForm() {
                   type="date"
                   required
                   min={today}
-                  className="w-full bg-[#FAF5F6] border border-[#ECD5D9] rounded-lg px-4 py-3 text-[#22050D] focus:outline-none focus:border-[#8A0427] text-sm cursor-pointer"
+                  className="w-full bg-[#FDF6F7]/60 border border-[#F0D5DA] rounded-xl px-4 py-3 text-[#2B0A12] focus:outline-none focus:border-[#8A0427] text-sm cursor-pointer"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="booking-time" className="block text-[#22050D] text-xs uppercase tracking-wider mb-1.5 font-bold">
+              <label htmlFor="booking-time" className="block text-[#2B0A12] text-xs uppercase tracking-wider mb-1.5 font-bold">
                 Orario *
               </label>
               <select
                 id="booking-time"
                 name="time"
                 required
-                className="w-full bg-[#FAF5F6] border border-[#ECD5D9] rounded-lg px-4 py-3 text-[#22050D] focus:outline-none focus:border-[#8A0427] text-sm cursor-pointer"
+                className="w-full bg-[#FDF6F7]/60 border border-[#F0D5DA] rounded-xl px-4 py-3 text-[#2B0A12] focus:outline-none focus:border-[#8A0427] text-sm cursor-pointer"
               >
                 <option value="">Seleziona orario</option>
                 <optgroup label="Pranzo">
@@ -168,15 +168,15 @@ export default function BookingForm() {
             </div>
 
             <div>
-              <label htmlFor="booking-notes" className="block text-[#22050D] text-xs uppercase tracking-wider mb-1.5 font-bold">
-                Note <span className="text-[#6B4E55] lowercase">(intolleranze, asporto)</span>
+              <label htmlFor="booking-notes" className="block text-[#2B0A12] text-xs uppercase tracking-wider mb-1.5 font-bold">
+                Note <span className="text-[#735058] lowercase">(allergie, orario asporto)</span>
               </label>
               <textarea
                 id="booking-notes"
                 name="notes"
                 rows={2}
-                placeholder="Es: asporto ore 20:30, intolleranza..."
-                className="w-full bg-[#FAF5F6] border border-[#ECD5D9] rounded-lg px-4 py-2.5 text-[#22050D] placeholder:text-[#6B4E55]/60 focus:outline-none focus:border-[#8A0427] text-sm resize-none"
+                placeholder="Es: asporto ore 20:30, intolleranze..."
+                className="w-full bg-[#FDF6F7]/60 border border-[#F0D5DA] rounded-xl px-4 py-2.5 text-[#2B0A12] placeholder:text-[#735058]/60 focus:outline-none focus:border-[#8A0427] text-sm resize-none"
               />
             </div>
 
@@ -186,9 +186,9 @@ export default function BookingForm() {
                 name="privacy"
                 type="checkbox"
                 required
-                className="mt-0.5 w-3.5 h-3.5 rounded border-[#ECD5D9] text-[#8A0427] focus:ring-0 cursor-pointer"
+                className="mt-0.5 w-3.5 h-3.5 rounded border-[#F0D5DA] text-[#8A0427] focus:ring-0 cursor-pointer"
               />
-              <label htmlFor="booking-privacy" className="text-[#6B4E55] text-xs cursor-pointer font-medium">
+              <label htmlFor="booking-privacy" className="text-[#735058] text-xs cursor-pointer font-medium">
                 Ho letto e accetto la{" "}
                 <Link href="/privacy-policy" target="_blank" className="text-[#8A0427] underline">
                   Privacy Policy
@@ -200,9 +200,9 @@ export default function BookingForm() {
             <button
               type="submit"
               disabled={isPending}
-              className="w-full bg-[#8A0427] hover:bg-[#6C031E] text-white text-xs sm:text-sm font-bold uppercase tracking-wider py-4 rounded-lg transition-colors cursor-pointer"
+              className="w-full bg-[#8A0427] hover:bg-[#6F021E] text-white text-xs sm:text-sm font-black uppercase tracking-wider py-4 rounded-xl transition-all shadow-md shadow-[#8A0427]/25 cursor-pointer"
             >
-              {isPending ? "Invio in corso..." : "Invia Richiesta"}
+              {isPending ? "Invio in corso..." : "Invia Richiesta Prenotazione"}
             </button>
           </form>
 

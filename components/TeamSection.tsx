@@ -10,7 +10,7 @@ export default function TeamSection() {
           <div className="lg:col-span-6">
             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border-4 border-[#FDF6F7] bg-white">
               <Image
-                src="/team-photo.jpg"
+                src="/insta-burger-box.jpg"
                 alt="Smash Up Experience"
                 fill
                 className="object-cover"

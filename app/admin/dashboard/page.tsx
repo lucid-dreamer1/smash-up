@@ -7,7 +7,7 @@ import DashboardClient from "@/components/admin/DashboardClient";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Pannello dell'Oste | Allèr Allèr",
+  title: "Dashboard Gestione Sala | Smash Up Admin",
   description: "Gestione prenotazioni e tavoli in tempo reale.",
 };
 

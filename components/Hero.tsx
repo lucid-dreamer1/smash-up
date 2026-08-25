@@ -2,120 +2,96 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-[92vh] flex items-center pt-24 sm:pt-28 pb-16 overflow-hidden">
+    <section id="hero" className="relative min-h-[90vh] md:min-h-[92vh] flex items-center pt-24 sm:pt-28 pb-14 sm:pb-16 overflow-hidden">
       
-      {/* ── Two-Tone Split Background based on Logo #8A0427 ── */}
-      <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-12 pointer-events-none">
+      {/* ── Background: Seamless Cream on Mobile + Two-Tone Split on Desktop ── */}
+      <div className="absolute inset-0 bg-[#FDF6F7] pointer-events-none overflow-hidden">
         
-        {/* Left Side: Deep Ruby Brand Color (#8A0427) */}
-        <div className="md:col-span-5 bg-[#8A0427] relative overflow-hidden flex items-center justify-center">
-          <div className="absolute left-6 bottom-12 select-none opacity-20 hidden md:block">
+        {/* Desktop Left Side: Deep Ruby Brand Color (#8A0427) */}
+        <div className="hidden md:block absolute top-0 bottom-0 left-0 w-[42%] lg:w-[40%] bg-[#8A0427] overflow-hidden">
+          <div className="absolute left-6 bottom-12 select-none opacity-20">
             <span className="font-[family-name:var(--font-display)] text-8xl font-black text-white tracking-tighter uppercase [writing-mode:vertical-lr] rotate-180">
               SMASH UP
             </span>
           </div>
-          <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-white/10 blur-3xl pointer-events-none" />
+          <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
         </div>
 
-        {/* Right Side: Warm Delicate Cream (#FDF6F7) */}
-        <div className="md:col-span-7 bg-[#FDF6F7] relative">
-          <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-[#8A0427]/10 blur-3xl pointer-events-none" />
-        </div>
+        {/* Ambient Subtle Glows */}
+        <div className="md:hidden absolute -top-12 -right-12 w-64 h-64 rounded-full bg-[#8A0427]/10 blur-3xl" />
+        <div className="md:hidden absolute bottom-10 -left-12 w-64 h-64 rounded-full bg-amber-500/10 blur-3xl" />
+        <div className="hidden md:block absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-[#8A0427]/10 blur-3xl" />
       </div>
 
       {/* ── Foreground Content ── */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Left / Center Area: Real Burger Image across split */}
+          {/* Burger Image (Center on Mobile, Left on Desktop) */}
           <div className="md:col-span-6 flex flex-col items-center md:items-start relative order-2 md:order-1">
             
-            <div className="relative w-full max-w-[420px] sm:max-w-[460px] mx-auto md:mx-0">
+            <div className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[460px] mx-auto md:mx-0 group">
               
+              {/* Subtle ambient glow behind card */}
+              <div className="absolute -inset-3 bg-gradient-to-tr from-[#8A0427]/20 via-amber-500/15 to-[#8A0427]/10 rounded-[2.5rem] blur-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+
               {/* Real Instagram Burger Image */}
-              <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
+              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_20px_45px_rgba(43,10,18,0.18)] border-4 border-white bg-white">
                 <Image
-                  src="/burger-hero.jpg"
+                  src="/hero-image.jpg"
                   alt="Smash Up Authentic Smash Burger"
                   fill
                   priority
-                  className="object-cover"
-                  sizes="(max-width: 768px) 90vw, 450px"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 400px, 460px"
                 />
-              </div>
-
-              {/* Star Sticker Badge */}
-              <div className="absolute -top-4 -left-3 sm:-left-5 bg-white text-[#2B0A12] rounded-2xl px-4 py-2 shadow-xl border border-[#F0D5DA] flex items-center gap-2 transform -rotate-6">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#8A0427]" />
-                <div className="leading-tight">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-[#8A0427] block">
-                    100% BLACK ANGUS
-                  </span>
-                  <span className="font-extrabold text-xs text-[#2B0A12]">
-                    Maillard Crust
-                  </span>
-                </div>
-              </div>
-
-              {/* Bottom Price Highlight Hook */}
-              <div className="mt-4 text-center md:text-left">
-                <p className="text-sm font-extrabold text-[#2B0A12] inline-flex items-center gap-2 bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl border border-[#F0D5DA] shadow-xs">
-                  <span>Smash Burger a partire da</span>
-                  <span className="text-[#8A0427] font-black text-base">€9.50</span>
-                </p>
               </div>
 
             </div>
 
           </div>
 
-          {/* Right Area: Clean Headline & Actions */}
-          <div className="md:col-span-6 space-y-6 order-1 md:order-2 text-left">
+          {/* Headline & Actions (Top on Mobile, Right on Desktop) */}
+          <div className="md:col-span-6 space-y-5 sm:space-y-6 order-1 md:order-2 text-left">
             
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#F0D5DA] shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#8A0427] animate-pulse" />
-              <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#8A0427]">
-                Authentic American Smash
-              </span>
-            </div>
+           
 
             {/* Headline */}
             <div className="space-y-2">
-              <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl lg:text-6xl font-black text-[#2B0A12] leading-[1.05] tracking-tight">
+              <h1 className="font-[family-name:var(--font-display)] text-3xl sm:text-5xl lg:text-6xl font-black text-[#2B0A12] leading-[1.08] tracking-tight">
                 Get your
                 <br />
                 <span className="text-[#8A0427]">Favorite</span> One.
               </h1>
-              <p className="font-[family-name:var(--font-display)] text-lg sm:text-xl font-bold text-[#735058]">
+              <p className="font-[family-name:var(--font-display)] text-base sm:text-xl font-bold text-[#735058]">
                 La vera crosticina americana che crea dipendenza.
               </p>
             </div>
 
-            <p className="text-[#735058] text-sm sm:text-base leading-relaxed max-w-lg font-medium">
+            <p className="text-[#735058] text-xs sm:text-base leading-relaxed max-w-lg font-medium">
               Doppio patty di Black Angus schiacciato a 250°C per liberare il massimo del sapore: bordi sottili e croccanti, cheddar fuso e soffice potato bun tostato.
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
               <a
-                href="#prenota"
-                className="bg-[#8A0427] hover:bg-[#6F021E] text-white text-xs sm:text-sm font-black uppercase tracking-wider px-7 py-3.5 rounded-xl shadow-lg shadow-[#8A0427]/25 transition-all hover:scale-105"
+                href="/#prenota"
+                className="bg-[#8A0427] hover:bg-[#6F021E] text-white text-xs sm:text-sm font-black uppercase tracking-wider px-7 py-3.5 rounded-xl shadow-lg shadow-[#8A0427]/25 transition-all hover:scale-105 text-center"
               >
                 Prenota un Tavolo
               </a>
               <a
-                href="#menu"
-                className="text-[#2B0A12] hover:text-[#8A0427] text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center gap-1.5 transition-colors py-2 px-3"
+                href="/#menu"
+                className="text-[#2B0A12] hover:text-[#8A0427] text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors py-2 px-3 text-center"
               >
                 <span>Vedi il Menu</span>
                 <span>→</span>
               </a>
             </div>
 
-            <div className="pt-2 text-xs text-[#735058] font-semibold flex items-center gap-3">
+            <div className="pt-1 text-xs text-[#735058] font-semibold flex items-center gap-3">
               <span>📍 @smash_up_official</span>
-              <span>·</span>
-              <span>Al tavolo &amp; Takeaway</span>
+
             </div>
 
           </div>

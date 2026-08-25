@@ -59,8 +59,8 @@ export default function DashboardClient({ onLogout }: DashboardClientProps) {
                 {isConnected ? "Live Sync" : "Syncing"}
               </span>
             </div>
-            <p className="text-olive-500 text-xs">
-              Allèr Allèr · Caserta
+            <p className="text-gray-500 text-xs">
+              Smash Up · Real American Smash Burger
             </p>
           </div>
 

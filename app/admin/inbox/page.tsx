@@ -5,8 +5,8 @@ import InboxClient from "@/components/admin/InboxClient";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Inbox Prenotazioni | Allèr Allèr",
-  description: "Gestisci le prenotazioni in arrivo dal portale inbox.",
+  title: "Inbox Prenotazioni | Smash Up Admin",
+  description: "Gestisci le prenotazioni in arrivo dal portale inbox di Smash Up.",
 };
 
 async function getInboxReservations(): Promise<Reservation[]> {

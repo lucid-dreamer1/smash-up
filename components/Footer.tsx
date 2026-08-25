@@ -3,6 +3,10 @@
 import Link from "next/link";
 
 export default function Footer() {
+  function handleOpenCookieBanner() {
+    window.dispatchEvent(new CustomEvent("open-cookie-banner"));
+  }
+
   return (
     <footer id="contatti" className="bg-[#2B0A12] text-[#FDF6F7]/70 text-xs">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -34,9 +38,9 @@ export default function Footer() {
             </h4>
             <p className="text-white font-light">Disponibile al tavolo &amp; Takeaway</p>
             <div className="pt-2 text-[#FDF6F7]/70 font-light leading-relaxed">
-              <p>Martedì – Domenica: 19:00 – 00:30</p>
+              <p>Mercoledì – Lunedì: 19:00 – 00:30</p>
               <p>Sabato &amp; Domenica anche a Pranzo: 12:30 – 15:30</p>
-              <p className="text-[#FDF6F7]/50 italic">Lunedì riposo settimanale</p>
+              <p className="text-[#FDF6F7]/50 italic">Martedì riposo settimanale</p>
             </div>
           </div>
 
@@ -62,11 +66,23 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-[#8A0427]/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#FDF6F7]/60">
           <p>© {new Date().getFullYear()} Smash Up. Tutti i diritti riservati.</p>
-          <div className="flex items-center gap-4">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
             <span>·</span>
-            <Link href="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
-          </div>
+            <Link href="/cookie-policy" className="hover:text-white transition-colors">
+              Cookie Policy
+            </Link>
+            <span>·</span>
+            <button
+              onClick={handleOpenCookieBanner}
+              type="button"
+              className="hover:text-white transition-colors cursor-pointer underline text-[#F0D5DA]"
+            >
+              Gestisci Cookie
+            </button>
+         </div>
         </div>
 
       </div>

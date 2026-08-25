@@ -9,7 +9,6 @@ const navLinks = [
   { href: "#la-scienza", label: "Il Nostro Smash" },
   { href: "#chi-siamo", label: "Il Locale" },
   { href: "#faq", label: "Domande" },
-  { href: "#prenota", label: "Prenota" },
 ];
 
 export default function Navbar() {

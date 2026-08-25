@@ -56,7 +56,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="py-24 bg-white border-t border-zinc-200">
+    <section id="faq" className="py-24 bg-white border-t border-[#F0D5DA]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -64,15 +64,15 @@ export default function FAQSection() {
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <span className="text-xs uppercase tracking-[0.25em] text-[#FF9F1C] font-black block mb-2">
+          <span className="text-xs uppercase tracking-[0.25em] text-[#8A0427] font-black block mb-2">
             Domande Frequenti
           </span>
-          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-black text-[#18181B]">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-black text-[#2B0A12]">
             FAQ Smash Up
           </h2>
         </div>
 
-        <div className="divide-y divide-zinc-200 border-y border-zinc-200">
+        <div className="divide-y divide-[#F0D5DA] border-y border-[#F0D5DA]">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
@@ -82,11 +82,11 @@ export default function FAQSection() {
                   className="w-full flex items-center justify-between gap-4 text-left group cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-[family-name:var(--font-display)] text-lg sm:text-xl font-bold text-[#18181B] group-hover:text-[#FF9F1C] transition-colors">
+                  <span className="font-[family-name:var(--font-display)] text-lg sm:text-xl font-bold text-[#2B0A12] group-hover:text-[#8A0427] transition-colors">
                     {faq.question}
                   </span>
                   <span
-                    className={`text-[#FF9F1C] text-xl font-bold w-6 h-6 flex items-center justify-center transition-transform duration-300 ${
+                    className={`text-[#8A0427] text-xl font-bold w-6 h-6 flex items-center justify-center transition-transform duration-300 ${
                       isOpen ? "rotate-45" : "rotate-0"
                     }`}
                   >
@@ -102,7 +102,7 @@ export default function FAQSection() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="text-zinc-600 text-sm font-light leading-relaxed pr-6">
+                    <p className="text-[#735058] text-sm font-light leading-relaxed pr-6">
                       {faq.answer}
                     </p>
                   </div>

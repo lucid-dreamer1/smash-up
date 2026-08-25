@@ -5,15 +5,15 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Reference Two-Tone Palette */
-  --color-smash-cheddar: #ECA050;
-  --color-smash-cheddar-dark: #D98836;
-  --color-smash-cream: #F7EFE3;
-  --color-smash-cream-light: #FDF9F3;
-  --color-smash-coral: #E75A4E;
-  --color-smash-coral-hover: #D4473B;
-  --color-smash-text: #2B2118;
-  --color-smash-subtext: #786A5E;
+  /* Exact Logo Palette (#8A0427 Ruby Carmine) */
+  --color-smash-primary: #8A0427;
+  --color-smash-primary-hover: #6F021E;
+  --color-smash-primary-light: #A80A33;
+  --color-smash-cream: #FDF6F7;
+  --color-smash-cream-card: #FFFFFF;
+  --color-smash-border: #F0D5DA;
+  --color-smash-text: #2B0A12;
+  --color-smash-subtext: #735058;
 
   /* Typography */
   --font-display: "Space Grotesk", system-ui, sans-serif;
@@ -21,8 +21,8 @@
 }
 
 :root {
-  --background: #F7EFE3;
-  --foreground: #2B2118;
+  --background: #FDF6F7;
+  --foreground: #2B0A12;
 }
 
 html {
@@ -37,17 +37,31 @@ body {
 }
 
 ::selection {
-  background-color: #ECA050 !important;
+  background-color: #8A0427 !important;
   color: #FFFFFF !important;
 }
 
 ::-moz-selection {
-  background-color: #ECA050 !important;
+  background-color: #8A0427 !important;
   color: #FFFFFF !important;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FDF6F7;
+}
+::-webkit-scrollbar-thumb {
+  background: #F0D5DA;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8A0427;
+}
+
 .pill-nav {
-  background: rgba(235, 230, 222, 0.85);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }

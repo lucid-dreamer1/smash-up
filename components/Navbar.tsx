@@ -32,41 +32,41 @@ export default function Navbar() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="font-[family-name:var(--font-display)] text-xl sm:text-2xl font-black tracking-tight text-[#2B2118] leading-none">
+            <span className="font-[family-name:var(--font-display)] text-xl sm:text-2xl font-black tracking-tight text-[#2B0A12] leading-none">
               SMASH UP
             </span>
-            <span className="text-[9px] uppercase tracking-[0.25em] font-extrabold text-[#786A5E] mt-0.5">
+            <span className="text-[9px] uppercase tracking-[0.25em] font-extrabold text-[#8A0427] mt-0.5">
               Burger Bar
             </span>
           </div>
         </Link>
 
         {/* Floating Pill Nav Container */}
-        <div className="hidden md:flex items-center gap-6 pill-nav border border-black/8 px-4 py-2 rounded-full shadow-lg shadow-black/5">
+        <div className="hidden md:flex items-center gap-6 pill-nav border border-[#F0D5DA] px-4 py-2 rounded-full shadow-lg shadow-black/5">
           <nav className="flex items-center gap-7 px-2">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-xs font-bold uppercase tracking-wider text-[#2B2118]/80 hover:text-[#2B2118] transition-colors"
+                className="text-xs font-bold uppercase tracking-wider text-[#2B0A12]/80 hover:text-[#8A0427] transition-colors"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          <div className="flex items-center gap-3 pl-2 border-l border-black/10">
+          <div className="flex items-center gap-3 pl-2 border-l border-[#F0D5DA]">
             <a
               href="https://www.instagram.com/smash_up_official/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-bold text-[#786A5E] hover:text-[#2B2118] transition-colors"
+              className="text-xs font-bold text-[#735058] hover:text-[#8A0427] transition-colors"
             >
               @smash_up_official
             </a>
             <a
               href="#prenota"
-              className="bg-[#E75A4E] hover:bg-[#D4473B] text-white text-xs font-black uppercase tracking-wider px-5 py-2.5 rounded-full transition-all shadow-md shadow-red-500/20 hover:scale-105"
+              className="bg-[#8A0427] hover:bg-[#6F021E] text-white text-xs font-black uppercase tracking-wider px-5 py-2.5 rounded-full transition-all shadow-md shadow-[#8A0427]/25 hover:scale-105"
             >
               Prenota
             </a>
@@ -76,23 +76,23 @@ export default function Navbar() {
         {/* Mobile Hamburger Button */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden p-2.5 rounded-2xl bg-white/90 border border-black/10 text-[#2B2118] flex flex-col items-center justify-center gap-1.5 w-10 h-10 shadow-sm"
+          className="md:hidden p-2.5 rounded-2xl bg-white border border-[#F0D5DA] text-[#2B0A12] flex flex-col items-center justify-center gap-1.5 w-10 h-10 shadow-sm"
           aria-label={mobileOpen ? "Chiudi menu" : "Apri menu"}
           aria-expanded={mobileOpen}
         >
           <span
-            className={`w-5 h-0.5 bg-[#2B2118] rounded-full transition-all duration-300 ${
-              mobileOpen ? "rotate-45 translate-y-2 bg-[#E75A4E]" : ""
+            className={`w-5 h-0.5 bg-[#2B0A12] rounded-full transition-all duration-300 ${
+              mobileOpen ? "rotate-45 translate-y-2 bg-[#8A0427]" : ""
             }`}
           />
           <span
-            className={`w-5 h-0.5 bg-[#2B2118] rounded-full transition-all duration-200 ${
+            className={`w-5 h-0.5 bg-[#2B0A12] rounded-full transition-all duration-200 ${
               mobileOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`w-5 h-0.5 bg-[#2B2118] rounded-full transition-all duration-300 ${
-              mobileOpen ? "-rotate-45 -translate-y-2 bg-[#E75A4E]" : ""
+            className={`w-5 h-0.5 bg-[#2B0A12] rounded-full transition-all duration-300 ${
+              mobileOpen ? "-rotate-45 -translate-y-2 bg-[#8A0427]" : ""
             }`}
           />
         </button>
@@ -100,13 +100,13 @@ export default function Navbar() {
 
       {/* Mobile Dropdown */}
       {mobileOpen && (
-        <div className="md:hidden mt-3 max-w-sm mx-auto bg-white/95 backdrop-blur-lg border border-black/10 rounded-3xl p-6 shadow-2xl flex flex-col gap-3">
+        <div className="md:hidden mt-3 max-w-sm mx-auto bg-white/95 backdrop-blur-lg border border-[#F0D5DA] rounded-3xl p-6 shadow-2xl flex flex-col gap-3">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="text-[#2B2118] text-sm font-bold uppercase tracking-wider py-2 border-b border-black/5"
+              className="text-[#2B0A12] text-sm font-bold uppercase tracking-wider py-2 border-b border-[#F0D5DA]/60 hover:text-[#8A0427]"
             >
               {link.label}
             </a>
@@ -114,7 +114,7 @@ export default function Navbar() {
           <a
             href="#prenota"
             onClick={() => setMobileOpen(false)}
-            className="mt-2 bg-[#E75A4E] text-white text-center text-xs font-black uppercase tracking-wider py-3.5 rounded-full shadow-md"
+            className="mt-2 bg-[#8A0427] text-white text-center text-xs font-black uppercase tracking-wider py-3.5 rounded-full shadow-md"
           >
             Prenota un Tavolo
           </a>

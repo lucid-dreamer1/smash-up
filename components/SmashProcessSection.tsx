@@ -18,17 +18,17 @@ export default function SmashProcessSection() {
   ];
 
   return (
-    <section id="la-scienza" className="py-20 bg-white border-y border-black/5">
+    <section id="la-scienza" className="py-20 bg-white border-y border-[#F0D5DA]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-[#ECA050] text-xs font-black uppercase tracking-[0.25em] block mb-2">
+          <span className="text-[#8A0427] text-xs font-black uppercase tracking-[0.25em] block mb-2">
             La Differenza Smash
           </span>
-          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-black text-[#2B2118]">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-black text-[#2B0A12]">
             Perché lo Smash crea dipendenza
           </h2>
-          <p className="text-[#786A5E] text-sm mt-2 font-medium">
+          <p className="text-[#735058] text-sm mt-2 font-medium">
             Tre passaggi precisi che trasformano un burger in un&apos;esperienza unica.
           </p>
         </div>
@@ -37,22 +37,22 @@ export default function SmashProcessSection() {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="bg-[#F7EFE3] rounded-3xl p-7 border border-black/5 hover:border-[#ECA050]/50 transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
+              className="bg-[#FDF6F7] rounded-3xl p-7 border border-[#F0D5DA] hover:border-[#8A0427]/50 transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <span className="w-8 h-8 rounded-full bg-[#ECA050]/15 flex items-center justify-center text-xs font-black text-[#ECA050]">
+                  <span className="w-8 h-8 rounded-full bg-[#8A0427]/10 flex items-center justify-center text-xs font-black text-[#8A0427]">
                     0{idx + 1}
                   </span>
-                  <span className="font-[family-name:var(--font-display)] text-2xl font-black text-[#ECA050]/40">
+                  <span className="font-[family-name:var(--font-display)] text-2xl font-black text-[#8A0427]/30">
                     {step.num}
                   </span>
                 </div>
 
-                <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-[#2B2118] mb-2">
+                <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-[#2B0A12] mb-2">
                   {step.title}
                 </h3>
-                <p className="text-[#786A5E] text-xs sm:text-sm leading-relaxed font-medium">
+                <p className="text-[#735058] text-xs sm:text-sm leading-relaxed font-medium">
                   {step.desc}
                 </p>
               </div>

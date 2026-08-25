@@ -20,10 +20,10 @@ export default function StickyMobileCTA() {
         visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
       }`}
     >
-      <div className="bg-white/95 backdrop-blur-md border-t border-black/10 px-4 py-3 shadow-2xl">
+      <div className="bg-white/95 backdrop-blur-md border-t border-[#F0D5DA] px-4 py-3 shadow-2xl">
         <a
           href="#prenota"
-          className="block bg-[#ECA050] hover:bg-[#D98836] text-white text-center font-black py-3.5 rounded-2xl shadow-md text-xs uppercase tracking-wider"
+          className="block bg-[#8A0427] hover:bg-[#6F021E] text-white text-center font-black py-3.5 rounded-2xl shadow-md text-xs uppercase tracking-wider"
         >
           Prenota un Tavolo
         </a>

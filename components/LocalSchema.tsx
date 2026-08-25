@@ -6,7 +6,6 @@ export default function LocalSchema() {
     image: "https://smashupburger.it/opengraph-image",
     "@id": "https://smashupburger.it/#restaurant",
     url: "https://smashupburger.it",
-    telephone: "+390823123456",
     priceRange: "€€",
     servesCuisine: ["American", "Burgers", "Street Food", "Smash Burger"],
     acceptsReservations: "True",
@@ -14,12 +13,12 @@ export default function LocalSchema() {
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: [
-          "Tuesday",
           "Wednesday",
           "Thursday",
           "Friday",
           "Saturday",
           "Sunday",
+          "Monday",
         ],
         opens: "19:00",
         closes: "00:30",

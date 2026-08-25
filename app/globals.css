@@ -5,15 +5,15 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Exact Logo Palette (#8A0427 Ruby Carmine) */
-  --color-smash-primary: #8A0427;
-  --color-smash-primary-hover: #6F021E;
-  --color-smash-primary-light: #A80A33;
-  --color-smash-cream: #FDF6F7;
-  --color-smash-cream-card: #FFFFFF;
-  --color-smash-border: #F0D5DA;
-  --color-smash-text: #2B0A12;
-  --color-smash-subtext: #735058;
+  /* Smash Up Official Palette */
+  --color-smash-ruby: #8A0427;
+  --color-smash-ruby-dark: #6C031E;
+  --color-smash-ruby-light: #A50A32;
+  --color-smash-cream: #FAF5F6;
+  --color-smash-white: #FFFFFF;
+  --color-smash-dark: #22050D;
+  --color-smash-muted: #6B4E55;
+  --color-smash-border: #ECD5D9;
 
   /* Typography */
   --font-display: "Space Grotesk", system-ui, sans-serif;
@@ -21,8 +21,8 @@
 }
 
 :root {
-  --background: #FDF6F7;
-  --foreground: #2B0A12;
+  --background: #FAF5F6;
+  --foreground: #22050D;
 }
 
 html {
@@ -44,24 +44,4 @@ body {
 ::-moz-selection {
   background-color: #8A0427 !important;
   color: #FFFFFF !important;
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #FDF6F7;
-}
-::-webkit-scrollbar-thumb {
-  background: #F0D5DA;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #8A0427;
-}
-
-.pill-nav {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }

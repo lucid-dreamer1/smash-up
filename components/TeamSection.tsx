@@ -1,94 +1,67 @@
 import Image from "next/image";
 
 export default function TeamSection() {
+  const photos = [
+    { src: "/insta-burger-2.jpg", alt: "Smash Up Burger sul tagliere" },
+    { src: "/insta-burger-box.jpg", alt: "Smash Up Combo Box" },
+    { src: "/insta-burger-3.jpg", alt: "Smash burger con doppio formaggio" },
+    { src: "/insta-burger-4.jpg", alt: "Smash Up Loaded special" },
+  ];
+
   return (
-    <section id="chi-siamo" className="py-24 bg-white border-t border-[#F0D5DA]">
+    <section id="chi-siamo" className="py-24 bg-white border-b border-[#ECD5D9]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
+          {/* Gallery */}
           <div className="lg:col-span-6 grid grid-cols-2 gap-4">
-            <div className="relative aspect-square rounded-3xl overflow-hidden shadow-lg border-2 border-[#FDF6F7] bg-white">
-              <Image
-                src="/insta-burger-2.jpg"
-                alt="Smash Up Signature Burger da Instagram"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 1024px) 50vw, 25vw"
-              />
-            </div>
-            <div className="relative aspect-square rounded-3xl overflow-hidden shadow-lg border-2 border-[#FDF6F7] bg-white mt-6">
-              <Image
-                src="/insta-burger-box.jpg"
-                alt="Smash Up Box Combo da Instagram"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 1024px) 50vw, 25vw"
-              />
-            </div>
-            <div className="relative aspect-square rounded-3xl overflow-hidden shadow-lg border-2 border-[#FDF6F7] bg-white -mt-6">
-              <Image
-                src="/insta-burger-3.jpg"
-                alt="Smash Up Double Patty da Instagram"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 1024px) 50vw, 25vw"
-              />
-            </div>
-            <div className="relative aspect-square rounded-3xl overflow-hidden shadow-lg border-2 border-[#FDF6F7] bg-white">
-              <Image
-                src="/insta-burger-4.jpg"
-                alt="Smash Up Loaded Burger da Instagram"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 1024px) 50vw, 25vw"
-              />
-            </div>
+            {photos.map((p, idx) => (
+              <div key={idx} className="relative aspect-square rounded-xl overflow-hidden border border-[#ECD5D9]">
+                <Image
+                  src={p.src}
+                  alt={p.alt}
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                />
+              </div>
+            ))}
           </div>
 
-          <div className="lg:col-span-6 space-y-5">
+          {/* Text */}
+          <div className="lg:col-span-6 space-y-6">
             <div>
-              <span className="text-xs uppercase tracking-[0.25em] text-[#8A0427] font-black block mb-2">
-                Behind The Griddle
+              <span className="text-xs uppercase tracking-[0.2em] text-[#8A0427] font-bold block mb-2">
+                La Nostra Storia
               </span>
-              <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-black text-[#2B0A12] leading-tight">
-                La passione per il vero
-                <br />
-                <span className="text-[#8A0427]">American Smash Burger.</span>
+              <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-black text-[#22050D] leading-tight">
+                Passione artigianale per la cottura smashed
               </h2>
             </div>
 
-            <div className="space-y-3 text-[#735058] text-sm leading-relaxed font-medium">
+            <div className="space-y-4 text-sm sm:text-base text-[#6B4E55] leading-relaxed">
               <p>
-                <strong>Smash Up</strong> nasce con una missione precisa: portare l&apos;autentica tecnica americana del burger schiacciato a regola d&apos;arte.
+                <strong>Smash Up</strong> nasce con un obiettivo chiaro: portare l&apos;autentico smash burger americano senza compromessi.
               </p>
               <p>
-                Piastra in cromo rovente a 250°C, carne Black Angus ad alto contenuto di sapore e la tipica pressatura rapida che intrappola tutti i succhi e crea quella crosticina irresistibile.
+                Utilizziamo solo materie prime selezionate, buns freschi e carni ad alto contenuto di sapore lavorate ogni mattina.
               </p>
               <p>
-                Seguici su Instagram <a href="https://www.instagram.com/smash_up_official/" target="_blank" rel="noopener noreferrer" className="text-[#8A0427] font-bold underline">@smash_up_official</a> per scoprire tutte le ultime novità e i burger speciali del mese.
+                Siamo presenti sui social per mostrare ogni giorno le nostre preparazioni e i fuori menu del mese.
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-3 pt-3 border-t border-[#F0D5DA] text-center">
-              <div className="bg-[#FDF6F7] p-3 rounded-2xl border border-[#F0D5DA]">
-                <span className="font-[family-name:var(--font-display)] text-2xl font-black text-[#8A0427] block">
-                  250°C
-                </span>
-                <span className="text-[11px] text-[#735058] font-bold">Piastra Calda</span>
-              </div>
-              <div className="bg-[#FDF6F7] p-3 rounded-2xl border border-[#F0D5DA]">
-                <span className="font-[family-name:var(--font-display)] text-2xl font-black text-[#8A0427] block">
-                  100%
-                </span>
-                <span className="text-[11px] text-[#735058] font-bold">Black Angus</span>
-              </div>
-              <div className="bg-[#FDF6F7] p-3 rounded-2xl border border-[#F0D5DA]">
-                <span className="font-[family-name:var(--font-display)] text-2xl font-black text-[#8A0427] block">
-                  0
-                </span>
-                <span className="text-[11px] text-[#735058] font-bold">Compromessi</span>
-              </div>
+            <div className="pt-2">
+              <a
+                href="https://www.instagram.com/smash_up_official/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#8A0427] hover:bg-[#6C031E] text-white text-xs uppercase tracking-wider font-bold px-6 py-3 rounded-lg transition-colors"
+              >
+                <span>Vedi il Profilo Instagram</span>
+                <span>↗</span>
+              </a>
             </div>
           </div>
 

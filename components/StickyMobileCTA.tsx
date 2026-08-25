@@ -16,14 +16,14 @@ export default function StickyMobileCTA() {
 
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-40 md:hidden transition-all duration-500 ${
+      className={`fixed bottom-0 left-0 right-0 z-40 md:hidden transition-all duration-300 ${
         visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
       }`}
     >
-      <div className="bg-white/95 backdrop-blur-md border-t border-[#F0D5DA] px-4 py-3 shadow-2xl">
+      <div className="bg-white border-t border-[#ECD5D9] px-4 py-3 shadow-lg">
         <a
           href="#prenota"
-          className="block bg-[#8A0427] hover:bg-[#6F021E] text-white text-center font-black py-3.5 rounded-2xl shadow-md text-xs uppercase tracking-wider"
+          className="block bg-[#8A0427] text-white text-center font-bold py-3.5 rounded-lg text-xs uppercase tracking-wider"
         >
           Prenota un Tavolo
         </a>

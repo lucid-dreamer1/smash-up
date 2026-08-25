@@ -1,63 +1,50 @@
 export default function SmashProcessSection() {
-  const steps = [
+  const points = [
     {
-      num: "01",
-      title: "The Blend 100% Angus",
-      desc: "Solo tagli nobili selezionati freschi ogni mattina con il bilanciamento ideale di grasso nobile per un morso succoso ed esplosivo.",
+      title: "La Carne: 100% Black Angus",
+      desc: "Nessun additivo o conservante. Solo tagli nobili selezionati con il bilanciamento ideale di grasso nobile per garantire un morso morbido e ricco di sapore.",
     },
     {
-      num: "02",
-      title: "The Searing 250°C Press",
-      desc: "La polpetta viene schiacciata con la pressa in ghisa sulla piastra rovente, liberando la reazione di Maillard e una crosticina irresistibile.",
+      title: "La Piastra: Pressione a 250°C",
+      desc: "La polpetta viene schiacciata con forza nei primi secondi sulla piastra rovente. Il contatto termico immediato crea la celebre crosticina caramellata di Maillard.",
     },
     {
-      num: "03",
-      title: "The Potato Bun & Sauce",
-      desc: "Panino soffice come una nuvola tostato al burro, doppio cheddar fuso e la nostra iconica salsa segreta della casa.",
+      title: "Il Pane: Authentic Potato Bun",
+      desc: "Panino americano a base di patate, soffice e leggero, tostato al burro sulla piastra per accogliere il doppio cheddar fuso e la nostra salsa speciale.",
     },
   ];
 
   return (
-    <section id="la-scienza" className="py-20 bg-white border-y border-[#F0D5DA]">
+    <section id="la-scienza" className="py-20 bg-white border-b border-[#ECD5D9]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-[#8A0427] text-xs font-black uppercase tracking-[0.25em] block mb-2">
-            La Differenza Smash
-          </span>
-          <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-black text-[#2B0A12]">
-            Perché lo Smash crea dipendenza
-          </h2>
-          <p className="text-[#735058] text-sm mt-2 font-medium">
-            Tre passaggi precisi che trasformano un burger in un&apos;esperienza unica.
-          </p>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <div className="lg:col-span-4 space-y-3">
+            <span className="text-xs uppercase tracking-[0.2em] text-[#8A0427] font-bold block">
+              La Filosofia Smash
+            </span>
+            <h2 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-black text-[#22050D] leading-tight">
+              Cosa rende unico il nostro burger
+            </h2>
+            <p className="text-sm text-[#6B4E55] leading-relaxed">
+              Non è un hamburger tradizionale: è una tecnica di cottura specifica nata negli Stati Uniti per esaltare al massimo consistenza e sapore.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {steps.map((step, idx) => (
-            <div
-              key={idx}
-              className="bg-[#FDF6F7] rounded-3xl p-7 border border-[#F0D5DA] hover:border-[#8A0427]/50 transition-all duration-300 hover:shadow-lg flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-5">
-                  <span className="w-8 h-8 rounded-full bg-[#8A0427]/10 flex items-center justify-center text-xs font-black text-[#8A0427]">
-                    0{idx + 1}
-                  </span>
-                  <span className="font-[family-name:var(--font-display)] text-2xl font-black text-[#8A0427]/30">
-                    {step.num}
-                  </span>
-                </div>
-
-                <h3 className="font-[family-name:var(--font-display)] text-xl font-bold text-[#2B0A12] mb-2">
-                  {step.title}
+          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            {points.map((pt, i) => (
+              <div key={i} className="border-t-2 border-[#8A0427] pt-4 space-y-2">
+                <h3 className="font-bold text-[#22050D] text-base">
+                  {pt.title}
                 </h3>
-                <p className="text-[#735058] text-xs sm:text-sm leading-relaxed font-medium">
-                  {step.desc}
+                <p className="text-xs sm:text-sm text-[#6B4E55] leading-relaxed">
+                  {pt.desc}
                 </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
         </div>
 
       </div>

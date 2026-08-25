@@ -43,7 +43,8 @@ export default function LoginForm() {
         return;
       }
 
-      router.push("/admin/dashboard");
+      // Direct to Inbox immediately
+      router.push("/admin/inbox");
       router.refresh();
     } catch (err) {
       console.error("Login error:", err);
@@ -67,7 +68,7 @@ export default function LoginForm() {
       <div>
         <label
           htmlFor="login-email"
-          className="block text-[#5F1A19] text-xs font-semibold uppercase tracking-wider mb-2"
+          className="block text-[#2B0A12] text-xs font-black uppercase tracking-wider mb-2"
         >
           Email Amministratore
         </label>
@@ -77,15 +78,15 @@ export default function LoginForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          placeholder="admin@alleraller.it"
-          className="w-full bg-[#f9f8f4] border border-[#5F1A19]/20 rounded-xl px-4 py-3 text-[#260a0a] placeholder:text-[#260a0a]/35 focus:outline-none focus:border-[#5F1A19] focus:ring-1 focus:ring-[#5F1A19] transition-all text-sm"
+          placeholder="admin@smashupburger.it"
+          className="w-full bg-[#FDF6F7]/60 border border-[#F0D5DA] rounded-xl px-4 py-3 text-[#2B0A12] placeholder:text-[#735058]/50 focus:outline-none focus:border-[#8A0427] transition-all text-sm font-medium"
         />
       </div>
 
       <div>
         <label
           htmlFor="login-password"
-          className="block text-[#5F1A19] text-xs font-semibold uppercase tracking-wider mb-2"
+          className="block text-[#2B0A12] text-xs font-black uppercase tracking-wider mb-2"
         >
           Password
         </label>
@@ -96,19 +97,19 @@ export default function LoginForm() {
           onChange={(e) => setPassword(e.target.value)}
           required
           placeholder="••••••••"
-          className="w-full bg-[#f9f8f4] border border-[#5F1A19]/20 rounded-xl px-4 py-3 text-[#260a0a] placeholder:text-[#260a0a]/35 focus:outline-none focus:border-[#5F1A19] focus:ring-1 focus:ring-[#5F1A19] transition-all text-sm"
+          className="w-full bg-[#FDF6F7]/60 border border-[#F0D5DA] rounded-xl px-4 py-3 text-[#2B0A12] placeholder:text-[#735058]/50 focus:outline-none focus:border-[#8A0427] transition-all text-sm font-medium"
         />
       </div>
 
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-[#5F1A19] hover:bg-[#4d1514] disabled:opacity-50 text-[#FDD37B] font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 border border-[#FDD37B]/30 cursor-pointer"
+        className="w-full bg-[#8A0427] hover:bg-[#6F021E] disabled:opacity-50 text-white font-black text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all shadow-md shadow-[#8A0427]/25 flex items-center justify-center gap-2 cursor-pointer"
       >
         {loading ? (
           <>
             <svg
-              className="animate-spin w-4 h-4"
+              className="animate-spin w-4 h-4 text-white"
               fill="none"
               viewBox="0 0 24 24"
             >
@@ -129,7 +130,7 @@ export default function LoginForm() {
             Accesso in corso...
           </>
         ) : (
-          "Accedi al Pannello →"
+          "Accedi all'Inbox →"
         )}
       </button>
     </form>

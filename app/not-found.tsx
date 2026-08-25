@@ -1,67 +1,68 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-[#5F1A19] flex items-center justify-center px-4 relative overflow-hidden text-[#FDFDFC]">
+    <div className="min-h-screen bg-[#FDF6F7] flex items-center justify-center px-4 relative overflow-hidden text-[#2B0A12]">
       
-      {/* Subtle brand glow in background */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-[#FDD37B] rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#3a100f] rounded-full blur-3xl" />
+      {/* Background ambient ruby glow */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#8A0427]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 text-center max-w-lg">
+      <div className="relative z-10 text-center max-w-lg w-full py-12">
         
+        {/* Brand Logo Mini */}
+        <div className="inline-flex items-center gap-2.5 mb-6 bg-white border border-[#F0D5DA] px-4 py-2 rounded-2xl shadow-xs">
+          <div className="relative w-6 h-6 rounded-lg overflow-hidden border border-[#F0D5DA] bg-white">
+            <Image src="/logo.jpg" alt="Smash Up" fill sizes="24px" className="object-cover" />
+          </div>
+          <span className="font-[family-name:var(--font-display)] font-black text-sm text-[#2B0A12] tracking-tight">
+            SMASH UP <span className="text-[#8A0427]">.</span>
+          </span>
+        </div>
+
         {/* Large 404 Header */}
         <div className="relative mb-6">
-          <span className="text-[9rem] sm:text-[11rem] font-[family-name:var(--font-display)] font-bold text-[#FDD37B]/20 leading-none select-none block">
+          <span className="text-[8rem] sm:text-[10rem] font-[family-name:var(--font-display)] font-black text-[#8A0427]/15 leading-none select-none block">
             404
           </span>
-          <span className="absolute inset-0 flex items-center justify-center text-6xl">
-            🌶️
+          <span className="absolute inset-0 flex items-center justify-center text-6xl sm:text-7xl animate-bounce">
+            🍔
           </span>
         </div>
 
         {/* Title */}
-        <h1 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-normal text-[#FDFDFC] mb-4">
-          Questo piatto non è
+        <h1 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl font-black text-[#2B0A12] mb-3 leading-tight">
+          Questo smash burger
           <br />
-          <span className="italic text-[#FDD37B]">nel nostro menu!</span>
+          <span className="text-[#8A0427]">non è nel nostro menu!</span>
         </h1>
 
         {/* Description */}
-        <p className="text-[#FDFDFC]/80 text-base sm:text-lg mb-8 max-w-md mx-auto font-light leading-relaxed">
-          La pagina che stai cercando non esiste o è stata spostata.
-          Torna alla homepage per scoprire i nostri piatti di casa.
+        <p className="text-[#735058] text-sm sm:text-base mb-8 max-w-md mx-auto font-medium leading-relaxed">
+          Sembra che la pagina che stai cercando sia stata &quot;smashed&quot; via o non esista più. Torna alla home per gustare la vera crosticina croccante!
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
           <Link
             href="/"
-            className="group bg-[#FDD37B] hover:bg-[#e5b959] text-[#5F1A19] text-xs sm:text-sm font-bold tracking-wider uppercase px-7 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg flex items-center gap-2"
+            className="w-full sm:w-auto bg-[#8A0427] hover:bg-[#6F021E] text-white text-xs sm:text-sm font-black uppercase tracking-wider px-7 py-3.5 rounded-xl transition-all shadow-lg shadow-[#8A0427]/25 hover:scale-105 flex items-center justify-center gap-2 cursor-pointer"
           >
-            <svg
-              className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M7 16l-4-4m0 0l4-4m-4 4h18"
-              />
-            </svg>
-            Torna alla Homepage
+            <span>← Torna alla Home</span>
           </Link>
           <Link
-            href="/#prenota"
-            className="text-[#FDFDFC] hover:text-[#FDD37B] text-xs sm:text-sm font-semibold tracking-wider uppercase px-7 py-3.5 rounded-full border border-[#FDFDFC]/30 hover:border-[#FDD37B] transition-all duration-300"
+            href="/#menu"
+            className="w-full sm:w-auto bg-white hover:bg-[#FDF6F7] text-[#2B0A12] hover:text-[#8A0427] text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3.5 rounded-xl border border-[#F0D5DA] transition-all shadow-xs flex items-center justify-center cursor-pointer"
           >
-            Prenota un Tavolo
+            Vedi il Menu
           </Link>
+        </div>
+
+        <div className="mt-8 text-xs text-[#735058] font-semibold">
+          <span>📍 @smash_up_official</span>
         </div>
 
       </div>

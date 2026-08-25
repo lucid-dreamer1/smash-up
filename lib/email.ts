@@ -211,7 +211,7 @@ export async function sendOwnerBookingNotification(
       </div>
 
       <p style="color:#735058;font-size:12px;text-align:center;margin:18px 0 0;">
-        Tutte le prenotazioni e i tavoli sono consultabili dalla <a href="${BASE_URL}/admin/dashboard" style="color:#8A0427;text-decoration:underline;font-weight:700;">Dashboard Admin</a>.
+        Tutte le prenotazioni possono essere gestite direttamente dalla <a href="${inboxUrl}" style="color:#8A0427;text-decoration:underline;font-weight:700;">Inbox Prenotazioni</a>.
       </p>
     `),
   });

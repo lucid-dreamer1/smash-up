@@ -99,10 +99,10 @@ export default async function BookingResponsePage({
         {/* Action Buttons */}
         <div className="space-y-3 pt-2">
           <Link
-            href="/admin/dashboard"
+            href="/admin/inbox"
             className="block bg-[#8A0427] hover:bg-[#6F021E] text-white text-xs uppercase tracking-wider font-black py-3.5 rounded-xl transition-all shadow-md shadow-[#8A0427]/20 hover:scale-[1.02]"
           >
-            Apri Dashboard Gestione →
+            Vai alla Inbox Prenotazioni →
           </Link>
           <Link
             href="/"

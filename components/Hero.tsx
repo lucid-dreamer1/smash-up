@@ -2,111 +2,122 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      className="relative min-h-[88vh] lg:min-h-[92vh] flex items-center justify-center overflow-hidden bg-[#FBFBFA] pt-28 pb-16 lg:py-24"
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section id="hero" className="relative min-h-[92vh] flex items-center pt-24 sm:pt-28 pb-16 overflow-hidden">
+      
+      {/* ── Two-Tone Split Background ── */}
+      <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-12 pointer-events-none">
+        {/* Left Side: Warm Cheddar Orange */}
+        <div className="md:col-span-5 bg-[#ECA050] relative overflow-hidden flex items-center justify-center">
+          {/* Subtle vertical decorative typography */}
+          <div className="absolute left-6 bottom-12 select-none opacity-20 hidden md:block">
+            <span className="font-[family-name:var(--font-display)] text-8xl font-black text-[#663A0F] tracking-tighter uppercase [writing-mode:vertical-lr] rotate-180">
+              SMASH UP
+            </span>
+          </div>
+          <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-white/10 blur-3xl pointer-events-none" />
+        </div>
+
+        {/* Right Side: Warm Cream / Beige */}
+        <div className="md:col-span-7 bg-[#F7EFE3] relative">
+          <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-[#ECA050]/15 blur-3xl pointer-events-none" />
+        </div>
+      </div>
+
+      {/* ── Foreground Content ── */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Left Column */}
-          <div className="lg:col-span-7 text-left space-y-6">
+          {/* Left / Center Area: Floating Isolated Burger across split */}
+          <div className="md:col-span-6 flex flex-col items-center md:items-start relative order-2 md:order-1">
             
-            {/* Live Tag */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200/80">
-              <span className="w-2 h-2 rounded-full bg-[#FF9F1C] animate-pulse" />
-              <span className="text-[#FF9F1C] text-xs font-black uppercase tracking-[0.2em]">
-                Authentic American Smash Burger
-              </span>
-            </div>
+            <div className="relative w-full max-w-[420px] sm:max-w-[460px] mx-auto md:mx-0">
+              
+              {/* Isolated Burger with Soft Glow and Floating Shadow */}
+              <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white/60">
+                <Image
+                  src="/burger-hero.jpg"
+                  alt="The OG Double Smash Burger di Smash Up"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 768px) 90vw, 450px"
+                />
+              </div>
 
-            {/* Main Title */}
-            <div className="space-y-2">
-              <h1 className="font-[family-name:var(--font-display)] text-5xl sm:text-6xl md:text-7xl font-black text-[#18181B] leading-[0.95] tracking-tight">
-                REAL SMASH.
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9F1C] via-amber-500 to-[#FF9F1C]">
-                  REAL CRUST.
-                </span>
-              </h1>
-              <p className="font-[family-name:var(--font-display)] text-xl sm:text-2xl text-zinc-600 font-bold tracking-wide">
-                La vera crosticina americana che crea dipendenza.
-              </p>
-            </div>
+              {/* Floating Star Sticker Badge (Like the '40% OFF' in reference) */}
+              <div className="absolute -top-4 -left-3 sm:-left-5 bg-white text-[#2B2118] rounded-2xl px-4 py-2 shadow-xl border border-black/10 flex items-center gap-2 transform -rotate-6">
+                <span className="text-xl">🔥</span>
+                <div className="leading-tight">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-[#E75A4E] block">
+                    100% ANGUS
+                  </span>
+                  <span className="font-extrabold text-xs text-[#2B2118]">
+                    Maillard Crust
+                  </span>
+                </div>
+              </div>
 
-            {/* Description */}
-            <p className="text-zinc-600 text-sm sm:text-base md:text-lg max-w-xl font-normal leading-relaxed">
-              100% Black Angus smashed al momento sulla piastra rovente a 250°C per creare la celebre reazione di Maillard: bordi sottili e croccantissimi, doppio cheddar fuso e soffice potato bun tostato al burro.
-            </p>
+              {/* Bottom Price Highlight Hook */}
+              <div className="mt-4 text-center md:text-left">
+                <p className="text-sm font-extrabold text-[#2B2118] inline-flex items-center gap-2 bg-white/80 backdrop-blur-md px-4 py-2 rounded-xl border border-black/5 shadow-xs">
+                  <span>🍔 Smash Burger a partire da</span>
+                  <span className="text-[#E75A4E] font-black text-base">€9.50</span>
+                </p>
+              </div>
 
-            {/* Badges */}
-            <div className="flex flex-wrap gap-2.5 pt-1 text-xs font-bold text-zinc-700">
-              <span className="bg-white border border-zinc-200 px-3.5 py-1.5 rounded-xl shadow-xs">
-                🥩 100% Black Angus
-              </span>
-              <span className="bg-white border border-zinc-200 px-3.5 py-1.5 rounded-xl shadow-xs">
-                🧀 Double Melting Cheddar
-              </span>
-              <span className="bg-white border border-zinc-200 px-3.5 py-1.5 rounded-xl shadow-xs">
-                🥔 Toasted Potato Bun
-              </span>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
-              <a
-                href="#prenota"
-                className="bg-[#FF9F1C] hover:bg-[#ff8f00] text-white text-sm font-black tracking-wider uppercase px-8 py-4 rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 transition-all text-center flex items-center justify-center gap-2"
-              >
-                <span>Prenota un Tavolo</span>
-                <span>🔥</span>
-              </a>
-              <a
-                href="#menu"
-                className="bg-white hover:bg-zinc-50 text-[#18181B] border border-zinc-300 text-sm font-bold tracking-wider uppercase px-8 py-4 rounded-xl transition-all text-center shadow-xs"
-              >
-                Consulta il Menu
-              </a>
-            </div>
-
-            <div className="pt-2 flex items-center gap-2 text-xs text-zinc-500 font-medium">
-              <span>📍 @smash_up_official</span>
-              <span>·</span>
-              <span>Disponibile al tavolo &amp; Takeaway</span>
             </div>
 
           </div>
 
-          {/* Right Column: Burger Spotlight */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <Image
-                  src="/hero-bg.jpg"
-                  alt="Il doppio smash burger di Smash Up"
-                  fill
-                  priority
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                />
-              </div>
-
-              {/* Quality Tag */}
-              <div className="absolute -bottom-5 -left-4 sm:-left-6 bg-white border border-zinc-200 rounded-2xl p-4 shadow-xl flex items-center gap-3">
-                <span className="text-3xl">🍔</span>
-                <div>
-                  <span className="text-[10px] uppercase tracking-wider font-extrabold text-[#FF9F1C] block">
-                    The King of the Griddle
-                  </span>
-                  <span className="font-bold text-sm text-[#18181B]">
-                    The OG Double Smash
-                  </span>
-                </div>
-                <span className="bg-orange-50 text-[#FF9F1C] font-black text-sm px-2.5 py-1 rounded-lg border border-orange-200 ml-2">
-                  €9.50
-                </span>
-              </div>
+          {/* Right Area: Clean Headline & Direct Actions */}
+          <div className="md:col-span-6 space-y-6 order-1 md:order-2 text-left">
+            
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/90 border border-black/5 shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-[#E75A4E] animate-pulse" />
+              <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#E75A4E]">
+                Authentic American Smash
+              </span>
             </div>
+
+            {/* Headline matching the reference two-tone styling */}
+            <div className="space-y-2">
+              <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl lg:text-6xl font-black text-[#2B2118] leading-[1.05] tracking-tight">
+                Get your
+                <br />
+                <span className="text-[#ECA050]">Favorite</span> One.
+              </h1>
+              <p className="font-[family-name:var(--font-display)] text-lg sm:text-xl font-bold text-[#786A5E]">
+                La vera crosticina americana che crea dipendenza.
+              </p>
+            </div>
+
+            <p className="text-[#786A5E] text-sm sm:text-base leading-relaxed max-w-lg font-medium">
+              Doppio patty di Black Angus schiacciato a 250°C per liberare il massimo del sapore: bordi sottili e croccanti, cheddar fuso e soffice potato bun tostato.
+            </p>
+
+            {/* Action Buttons (Filled Orange + Text Link) */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="#prenota"
+                className="bg-[#ECA050] hover:bg-[#D98836] text-white text-xs sm:text-sm font-black uppercase tracking-wider px-7 py-3.5 rounded-xl shadow-lg shadow-orange-500/25 transition-all hover:scale-105"
+              >
+                Prenota un Tavolo
+              </a>
+              <a
+                href="#menu"
+                className="text-[#2B2118] hover:text-[#ECA050] text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center gap-1.5 transition-colors py-2 px-3"
+              >
+                <span>Vedi il Menu</span>
+                <span>→</span>
+              </a>
+            </div>
+
+            <div className="pt-2 text-xs text-[#786A5E] font-semibold flex items-center gap-3">
+              <span>📍 @smash_up_official</span>
+              <span>·</span>
+              <span>Al tavolo &amp; Takeaway</span>
+            </div>
+
           </div>
 
         </div>

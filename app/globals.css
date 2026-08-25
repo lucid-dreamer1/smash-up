@@ -1,19 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap");
 @import "tailwindcss";
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Signature Cheddar Gold & Flame */
-  --color-smash-gold: #FF9F1C;
-  --color-smash-amber: #FFAE03;
-  --color-smash-yellow: #FFB800;
-  --color-smash-red: #E63946;
-  --color-smash-dark: #18181B;
-  --color-smash-card: #FFFFFF;
-  --color-smash-bg: #FBFBFA;
-  --color-smash-border: #E4E4E7;
+  /* Reference Two-Tone Palette */
+  --color-smash-cheddar: #ECA050;
+  --color-smash-cheddar-dark: #D98836;
+  --color-smash-cream: #F7EFE3;
+  --color-smash-cream-light: #FDF9F3;
+  --color-smash-coral: #E75A4E;
+  --color-smash-coral-hover: #D4473B;
+  --color-smash-text: #2B2118;
+  --color-smash-subtext: #786A5E;
 
   /* Typography */
   --font-display: "Space Grotesk", system-ui, sans-serif;
@@ -21,8 +21,8 @@
 }
 
 :root {
-  --background: #FBFBFA;
-  --foreground: #18181B;
+  --background: #F7EFE3;
+  --foreground: #2B2118;
 }
 
 html {
@@ -37,31 +37,17 @@ body {
 }
 
 ::selection {
-  background-color: #FF9F1C !important;
+  background-color: #ECA050 !important;
   color: #FFFFFF !important;
 }
 
 ::-moz-selection {
-  background-color: #FF9F1C !important;
+  background-color: #ECA050 !important;
   color: #FFFFFF !important;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #FBFBFA;
-}
-::-webkit-scrollbar-thumb {
-  background: #E4E4E7;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #FF9F1C;
-}
-
-.glass-nav-light {
-  background: rgba(251, 251, 250, 0.94);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+.pill-nav {
+  background: rgba(235, 230, 222, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }

@@ -205,7 +205,7 @@ export default function InboxClient({ reservations, onLogout }: InboxClientProps
                           </span>
                         </div>
                         <div className="flex items-center gap-2 text-xs text-olive-600 font-medium">
-                          <span>{res.guests} {res.guests === 1 ? "persona" : "persone"}</span>
+                          <span>{res.service || "Appuntamento"}</span>
                           <span>·</span>
                           <span>{formatDate(res.date)}</span>
                           <span>·</span>
@@ -253,8 +253,8 @@ export default function InboxClient({ reservations, onLogout }: InboxClientProps
                   {/* Booking Details Grid */}
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     <div className="bg-olive-50 rounded-xl p-4">
-                      <p className="text-olive-500 text-xs font-semibold uppercase tracking-wider mb-1">Ospiti</p>
-                      <p className="text-2xl font-bold text-olive-900">{selected.guests} <span className="text-sm font-normal text-olive-600">{selected.guests === 1 ? "persona" : "persone"}</span></p>
+                      <p className="text-olive-500 text-xs font-semibold uppercase tracking-wider mb-1">Servizio</p>
+                      <p className="text-lg font-bold text-olive-900">{selected.service || "Appuntamento"}</p>
                     </div>
                     <div className="bg-olive-50 rounded-xl p-4">
                       <p className="text-olive-500 text-xs font-semibold uppercase tracking-wider mb-1">Data</p>
@@ -391,8 +391,8 @@ export default function InboxClient({ reservations, onLogout }: InboxClientProps
                   {/* Details grid */}
                   <div className="grid grid-cols-3 gap-3">
                     <div className="bg-olive-50 rounded-xl p-3 text-center">
-                      <p className="text-olive-500 text-[10px] font-bold uppercase">Persone</p>
-                      <p className="text-xl font-bold text-olive-900">{selected.guests}</p>
+                      <p className="text-olive-500 text-[10px] font-bold uppercase">Servizio</p>
+                      <p className="text-sm font-bold text-olive-900">{selected.service || "—"}</p>
                     </div>
                     <div className="bg-olive-50 rounded-xl p-3 text-center">
                       <p className="text-olive-500 text-[10px] font-bold uppercase">Data</p>

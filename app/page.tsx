@@ -1,10 +1,10 @@
-import { MenuItem } from "@/lib/types";
-import { mockMenuItems } from "@/lib/mock-data";
+import { ServiceItem } from "@/lib/types";
+import { mockServiceItems } from "@/lib/mock-data";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import SmashProcessSection from "@/components/SmashProcessSection";
-import MenuSection from "@/components/MenuSection";
-import TeamSection from "@/components/TeamSection";
+import WhyChooseUsSection from "@/components/SmashProcessSection";
+import ServicesSection from "@/components/MenuSection";
+import AboutSection from "@/components/TeamSection";
 import FAQSection from "@/components/FAQSection";
 import BookingForm from "@/components/BookingForm";
 import Footer from "@/components/Footer";
@@ -12,7 +12,7 @@ import StickyMobileCTA from "@/components/StickyMobileCTA";
 
 export const dynamic = "force-dynamic";
 
-async function getMenuItems(): Promise<MenuItem[]> {
+async function getServiceItems(): Promise<ServiceItem[]> {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
@@ -22,36 +22,36 @@ async function getMenuItems(): Promise<MenuItem[]> {
       const supabase = await createClient();
 
       const { data, error } = await supabase
-        .from("menu_items")
+        .from("services")
         .select("*")
         .eq("available", true)
         .order("category")
         .order("name");
 
       if (error || !data || data.length === 0) {
-        return mockMenuItems;
+        return mockServiceItems;
       }
 
-      return data as MenuItem[];
+      return data as ServiceItem[];
     } catch (err) {
       console.error("Supabase error:", err);
-      return mockMenuItems;
+      return mockServiceItems;
     }
   }
 
-  return mockMenuItems;
+  return mockServiceItems;
 }
 
 export default async function HomePage() {
-  const menuItems = await getMenuItems();
+  const serviceItems = await getServiceItems();
 
   return (
-    <main className="min-h-screen bg-[#FBFBFA]">
+    <main className="min-h-screen bg-[#FAFAF8]">
       <Navbar />
       <Hero />
-      <SmashProcessSection />
-      <MenuSection items={menuItems} />
-      <TeamSection />
+      <WhyChooseUsSection />
+      <ServicesSection items={serviceItems} />
+      <AboutSection />
       <FAQSection />
       <BookingForm />
       <Footer />

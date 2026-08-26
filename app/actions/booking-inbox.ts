@@ -15,7 +15,7 @@ export async function submitBookingInbox(
 ): Promise<InboxBookingFormState> {
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
-  const guests = parseInt(formData.get("guests") as string);
+  const service = formData.get("service") as string;
   const date = formData.get("date") as string;
   const time = formData.get("time") as string;
   const phone = formData.get("phone") as string;
@@ -28,8 +28,8 @@ export async function submitBookingInbox(
   if (!email || !email.includes("@")) {
     return { success: false, error: "Inserisci un'email valida per ricevere la conferma.", message: null };
   }
-  if (!guests || guests < 1 || guests > 12) {
-    return { success: false, error: "Numero di persone non valido (max 12).", message: null };
+  if (!service) {
+    return { success: false, error: "Seleziona un servizio.", message: null };
   }
   if (!date) {
     return { success: false, error: "Seleziona una data.", message: null };
@@ -54,10 +54,10 @@ export async function submitBookingInbox(
       const { createClient } = await import("@/lib/supabase/server");
       const supabase = await createClient();
 
-      const { error: insertErr } = await supabase.from("reservations").insert({
+      let { error: insertErr } = await supabase.from("reservations").insert({
         name: name.trim(),
         email: email.trim().toLowerCase(),
-        guests,
+        service,
         date,
         time,
         phone: phone.trim(),
@@ -66,19 +66,41 @@ export async function submitBookingInbox(
         status: "inbox",
         source: "website",
         booking_flow: "inbox",
-        table_id: null,
       });
+
+      // Fallback: if 'service' column doesn't exist yet in Supabase schema (PGRST204)
+      if (insertErr && (insertErr.code === "PGRST204" || insertErr.message?.includes("service"))) {
+        const enrichedNotes = notes?.trim()
+          ? `[Servizio: ${service}] ${notes.trim()}`
+          : `[Servizio: ${service}]`;
+
+        const retry = await supabase.from("reservations").insert({
+          name: name.trim(),
+          email: email.trim().toLowerCase(),
+          guests: 1,
+          date,
+          time,
+          phone: phone.trim(),
+          notes: enrichedNotes,
+          handled: false,
+          status: "inbox",
+          source: "website",
+          booking_flow: "inbox",
+        });
+
+        insertErr = retry.error;
+      }
 
       if (insertErr) {
         console.error("Supabase insert error (inbox):", insertErr);
         return {
           success: false,
-          error: "Errore nel salvataggio. Riprova o chiamaci direttamente.",
+          error: "Errore nel salvataggio. Riprova o contattaci su WhatsApp al 328 007 1334.",
           message: null,
         };
       }
     } else {
-      console.log("📬 Prenotazione Inbox (mock):", { name, email, guests, date, time, phone, notes });
+      console.log("📬 Prenotazione Inbox (mock):", { name, email, service, date, time, phone, notes });
       await new Promise((resolve) => setTimeout(resolve, 500));
     }
 
@@ -87,17 +109,17 @@ export async function submitBookingInbox(
       name: name.trim(),
       email: email.trim().toLowerCase(),
       phone: phone.trim(),
-      guests,
+      guests: 1,
       date,
       time,
-      notes: notes?.trim() || null,
+      notes: notes?.trim() ? `Servizio: ${service}\n${notes.trim()}` : `Servizio: ${service}`,
     };
     await sendOwnerInboxNotification(bookingData);
 
     return {
       success: true,
       error: null,
-      message: `Grazie ${name.trim().split(" ")[0]}! La tua richiesta è stata inviata. Riceverai una conferma via email a ${email.trim()} non appena il ristorante avrà verificato la disponibilità.`,
+      message: `Grazie ${name.trim().split(" ")[0]}! La tua richiesta per "${service}" è stata inviata. Riceverai conferma via email a ${email.trim()} al più presto.`,
     };
   } catch (err) {
     console.error("Booking inbox error:", err);

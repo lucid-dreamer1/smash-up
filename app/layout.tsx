@@ -5,18 +5,19 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import LocalSchema from "@/components/LocalSchema";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://smashupburger.it"),
-  title: "Smash Up | Real American Smash Burger",
+  metadataBase: new URL("https://cappiellohairbeauty.it"),
+  title: "Cappiello Hair & Beauty | Salone Parrucchiere Donna a Caserta",
   description:
-    "Autentico American Smash Burger con 100% Black Angus, crosticina croccante Maillard e cheddar fuso. Scopri il menu e prenota subito il tuo tavolo!",
+    "Cappiello Hair & Beauty — Salone di parrucchiere donna a Caserta. Taglio, colore, balayage, trattamenti ricostruttivi e acconciature sposa. Prenota il tuo appuntamento.",
   keywords: [
-    "smash up",
-    "smash burger",
-    "american smash burger",
-    "real smash burger",
-    "black angus smash",
-    "best burger",
-    "potato bun",
+    "parrucchiere caserta",
+    "salone donna caserta",
+    "cappiello hair beauty",
+    "balayage caserta",
+    "colore capelli caserta",
+    "taglio donna caserta",
+    "acconciature sposa caserta",
+    "trattamenti capelli caserta",
   ],
   icons: {
     icon: [
@@ -29,20 +30,20 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://smashupburger.it",
+    canonical: "https://cappiellohairbeauty.it",
   },
   openGraph: {
-    title: "Smash Up | Real American Smash Burger",
+    title: "Cappiello Hair & Beauty | Salone Parrucchiere Donna a Caserta",
     description:
-      "Autentico American Smash Burger con 100% Black Angus, crosticina croccante Maillard e cheddar fuso. Scopri il menu e prenota subito!",
-    url: "https://smashupburger.it",
-    siteName: "Smash Up",
+      "Taglio, colore, balayage, trattamenti e acconciature sposa nel cuore di Caserta. Prenota il tuo appuntamento da Cappiello Hair & Beauty.",
+    url: "https://cappiellohairbeauty.it",
+    siteName: "Cappiello Hair & Beauty",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Smash Up — Real American Smash Burger",
+        alt: "Cappiello Hair & Beauty — Salone Parrucchiere Caserta",
       },
     ],
     type: "website",
@@ -50,9 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Smash Up | Real American Smash Burger",
+    title: "Cappiello Hair & Beauty | Salone Parrucchiere Donna a Caserta",
     description:
-      "Autentico American Smash Burger con 100% Black Angus, crosticina croccante Maillard e cheddar fuso. Scopri il menu e prenota subito!",
+      "Taglio, colore, balayage, trattamenti e acconciature sposa nel cuore di Caserta. Prenota il tuo appuntamento.",
     images: ["/opengraph-image"],
   },
 };
@@ -65,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/png" sizes="32x32" href="/icon.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       </head>
-      <body className="min-h-full flex flex-col bg-[#FBFBFA] text-[#18181B] font-sans" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col bg-[#FAFAF8] text-[#1A1A1B] font-sans" suppressHydrationWarning>
         <LocalSchema />
         <GoogleAnalytics />
         {children}

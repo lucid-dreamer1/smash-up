@@ -1,16 +1,19 @@
-// ─── Menu ───
-export interface MenuItem {
+// ─── Services ───
+export interface ServiceItem {
   id: string;
   name: string;
   description: string;
-  price: number;
-  category: "antipasti" | "primi" | "secondi" | "dolci";
+  category: "taglio" | "colore" | "trattamenti" | "sposa";
   available: boolean;
   featured?: boolean;
   created_at?: string;
 }
 
-export type MenuCategory = MenuItem["category"];
+export type ServiceCategory = ServiceItem["category"];
+
+// ─── Legacy alias for Supabase compatibility ───
+export type MenuItem = ServiceItem;
+export type MenuCategory = ServiceCategory;
 
 // ─── Reservation Status (Extended for multi-flow) ───
 export type ReservationStatus =
@@ -22,30 +25,16 @@ export type ReservationStatus =
   | "rejected"
   | "direct_pending";
 
-export type ReservationSource = "website" | "phone" | "walk_in";
+export type ReservationSource = "website" | "phone" | "walk_in" | "whatsapp";
 
 // ─── Booking Flow ───
 export type BookingFlow = "classic" | "inbox" | "direct";
-
-// ─── Table ───
-export type TableZone = "sala" | "esterno" | "privata";
-
-export interface Table {
-  id: string;
-  number: number;
-  seats: number;
-  zone: TableZone;
-  active: boolean;
-  position_x?: number; // 0 - 100 percentage on floor plan
-  position_y?: number; // 0 - 100 percentage on floor plan
-  created_at?: string;
-}
 
 // ─── Reservation ───
 export interface Reservation {
   id: string;
   name: string;
-  guests: number;
+  service: string;
   date: string;
   time: string;
   phone: string;
@@ -55,11 +44,9 @@ export interface Reservation {
   status: ReservationStatus;
   source: ReservationSource;
   booking_flow: BookingFlow;
-  table_id: string | null;
   response_token: string | null;
   responded_at: string | null;
   created_at: string;
-  table?: Table;
 }
 
 // ─── Form States ───
@@ -114,28 +101,28 @@ export const STATUS_CONFIG: Record<
     icon: "",
   },
   confirmed: {
-    label: "Confermata",
+    label: "Confermato",
     color: "text-emerald-800",
     bgColor: "bg-emerald-100",
     borderColor: "border-emerald-300",
     icon: "",
   },
   rejected: {
-    label: "Rifiutata",
+    label: "Rifiutato",
     color: "text-red-800",
     bgColor: "bg-red-100",
     borderColor: "border-red-300",
     icon: "",
   },
   completed: {
-    label: "Completata",
+    label: "Completato",
     color: "text-green-800",
     bgColor: "bg-green-100",
     borderColor: "border-green-300",
     icon: "",
   },
   cancelled: {
-    label: "Annullata",
+    label: "Annullato",
     color: "text-gray-600",
     bgColor: "bg-gray-100",
     borderColor: "border-gray-300",
@@ -150,12 +137,16 @@ export const SOURCE_CONFIG: Record<
   website: { label: "Sito Web", icon: "" },
   phone: { label: "Telefono", icon: "" },
   walk_in: { label: "Passaggio", icon: "" },
+  whatsapp: { label: "WhatsApp", icon: "" },
 };
 
 // ─── Constants ───
-export const RESERVATION_DURATION_HOURS = 2;
-export const TABLE_ZONES: { key: TableZone; label: string }[] = [
-  { key: "sala", label: "Sala Principale" },
-  { key: "esterno", label: "Dehors Esterno" },
-  { key: "privata", label: "Sala Riservata" },
+export const RESERVATION_DURATION_HOURS = 1;
+
+// ─── Service Categories Config ───
+export const SERVICE_CATEGORIES: { key: ServiceCategory; label: string }[] = [
+  { key: "taglio", label: "Taglio & Piega" },
+  { key: "colore", label: "Colore" },
+  { key: "trattamenti", label: "Trattamenti" },
+  { key: "sposa", label: "Sposa & Cerimonia" },
 ];

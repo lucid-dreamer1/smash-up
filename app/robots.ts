@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/admin/", "/api/"],
     },
-    sitemap: "https://smashupburger.it/sitemap.xml",
+    sitemap: "https://cappiellohairbeauty.it/sitemap.xml",
   };
 }

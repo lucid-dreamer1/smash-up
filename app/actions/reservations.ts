@@ -6,7 +6,6 @@ import type {
   ReservationSource,
   QuickBookingFormState,
 } from "@/lib/types";
-import { mockTables } from "@/lib/mock-data";
 
 async function getSupabase() {
   const { createClient } = await import("@/lib/supabase/server");
@@ -26,7 +25,7 @@ export async function updateReservationStatus(
   try {
     if (!isSupabaseConfigured()) {
       console.log(`📋 Status aggiornato (mock) [${id}]: ${status}`);
-      revalidatePath("/admin/dashboard");
+      revalidatePath("/admin/inbox");
       return { success: true, error: null };
     }
 
@@ -58,65 +57,10 @@ export async function updateReservationStatus(
       return { success: false, error: "Errore nell'aggiornamento stato." };
     }
 
-    revalidatePath("/admin/dashboard");
+    revalidatePath("/admin/inbox");
     return { success: true, error: null };
   } catch (err) {
     console.error("updateReservationStatus error:", err);
-    return { success: false, error: "Si è verificato un errore." };
-  }
-}
-
-export async function assignTable(
-  reservationId: string,
-  tableId: string | null
-) {
-  try {
-    if (!isSupabaseConfigured()) {
-      console.log(`📋 Tavolo assegnato (mock): Prenotazione ${reservationId} -> Tavolo ${tableId}`);
-      revalidatePath("/admin/dashboard");
-      return { success: true, error: null };
-    }
-
-    const supabase = await getSupabase();
-
-    if (tableId) {
-      // Ensure table exists in Supabase
-      const { data: tableCheck } = await supabase
-        .from("tables")
-        .select("id")
-        .eq("id", tableId)
-        .maybeSingle();
-
-      if (!tableCheck) {
-        const mockMatch = mockTables.find((t) => t.id === tableId);
-        if (mockMatch) {
-          await supabase.from("tables").insert({
-            id: mockMatch.id,
-            number: mockMatch.number,
-            seats: mockMatch.seats,
-            zone: mockMatch.zone,
-            active: mockMatch.active,
-          });
-        }
-      }
-    }
-
-    let { error } = await supabase
-      .from("reservations")
-      .update({
-        table_id: tableId,
-      })
-      .eq("id", reservationId);
-
-    if (error) {
-      console.error("Assign table error:", error);
-      return { success: false, error: error.message };
-    }
-
-    revalidatePath("/admin/dashboard");
-    return { success: true, error: null };
-  } catch (err) {
-    console.error("assignTable error:", err);
     return { success: false, error: "Si è verificato un errore." };
   }
 }
@@ -127,22 +71,17 @@ export async function createQuickBooking(
 ): Promise<QuickBookingFormState> {
   const name = formData.get("name") as string;
   const phone = formData.get("phone") as string;
-  const guests = parseInt(formData.get("guests") as string);
+  const service = (formData.get("service") as string) || "Appuntamento";
   const date = formData.get("date") as string;
   const time = formData.get("time") as string;
   const notes = (formData.get("notes") as string) || null;
   const source = (formData.get("source") as ReservationSource) || "phone";
-  const rawTableId = formData.get("table_id") as string;
-  const tableId = rawTableId && rawTableId !== "" ? rawTableId : null;
 
   if (!name || name.trim().length < 2) {
     return { success: false, error: "Inserisci un nome valido.", message: null };
   }
   if (!phone || phone.trim().length < 5) {
     return { success: false, error: "Inserisci un telefono valido.", message: null };
-  }
-  if (!guests || guests < 1) {
-    return { success: false, error: "Numero persone non valido.", message: null };
   }
   if (!date || !time) {
     return { success: false, error: "Data e ora sono obbligatorie.", message: null };
@@ -153,90 +92,44 @@ export async function createQuickBooking(
       console.log("⚡ Inserimento rapido (mock):", {
         name,
         phone,
-        guests,
+        service,
         date,
         time,
         notes,
         source,
-        tableId,
       });
-      revalidatePath("/admin/dashboard");
+      revalidatePath("/admin/inbox");
       return {
         success: true,
         error: null,
-        message: `Prenotazione registrata con successo per ${name}!`,
+        message: `Appuntamento registrato con successo per ${name}!`,
       };
     }
 
     const supabase = await getSupabase();
 
-    let finalTableId = tableId;
-    if (finalTableId) {
-      // Check if table exists in DB by ID
-      const { data: tableCheck } = await supabase
-        .from("tables")
-        .select("id")
-        .eq("id", finalTableId)
-        .maybeSingle();
-
-      if (!tableCheck) {
-        // If not in Supabase yet, insert it from mock data so foreign key succeeds!
-        const mockMatch = mockTables.find((t) => t.id === finalTableId);
-        if (mockMatch) {
-          const { error: seedErr } = await supabase.from("tables").insert({
-            id: mockMatch.id,
-            number: mockMatch.number,
-            seats: mockMatch.seats,
-            zone: mockMatch.zone,
-            active: mockMatch.active,
-          });
-          if (seedErr) {
-            console.error("Auto-insert table for booking error:", seedErr);
-          }
-        }
-      }
-    }
-
-    // Insert reservation
-    let insertResult = await supabase.from("reservations").insert({
+    const { error } = await supabase.from("reservations").insert({
       name: name.trim(),
       phone: phone.trim(),
-      guests,
+      service,
       date,
       time,
       notes: notes?.trim() || null,
       source,
       status: "pending",
       handled: false,
-      table_id: finalTableId,
     });
 
-    // Fallback if foreign key still complains
-    if (insertResult.error && (insertResult.error.code === "23503" || insertResult.error.code === "22P02")) {
-      insertResult = await supabase.from("reservations").insert({
-        name: name.trim(),
-        phone: phone.trim(),
-        guests,
-        date,
-        time,
-        notes: notes?.trim() || null,
-        source,
-        status: "pending",
-        handled: false,
-        table_id: null,
-      });
+    if (error) {
+      console.error("Insert quick reservation error:", error);
+      return { success: false, error: error.message, message: null };
     }
 
-    if (insertResult.error) {
-      console.error("Insert quick reservation error:", insertResult.error);
-      return { success: false, error: insertResult.error.message, message: null };
-    }
-
-    revalidatePath("/admin/dashboard");
+    revalidatePath("/admin/inbox");
     return {
       success: true,
       error: null,
-      message: `Prenotazione registrata con successo per ${name}!`,
+      message: `Appuntamento registrato con successo per ${name}!`,
     };
   } catch (err) {
     console.error("createQuickBooking error:", err);
